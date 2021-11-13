@@ -1,0 +1,109 @@
+@font-face {
+  font-family: "MPLUS1Code";
+  src: url(/fonts/MPLUS1Code-VariableFont_wght.ttf?0994b7b69b2ff55a910a9591ad31ba6b);
+}
+body {
+  font-family: MPLUS1Code;
+}
+body .contents .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+body .contents main .first-impression {
+  position: relative;
+  height: 850px;
+  width: 100%;
+}
+body .contents main .first-impression .bg {
+  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0.5;
+  position: absolute;
+}
+body .contents main .first-impression .text {
+  text-align: center;
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+body .contents main .first-impression .text h1 {
+  letter-spacing: 0.1em;
+  color: black;
+  padding: 5px;
+}
+body .contents main .info-wrapper {
+  height: 850px;
+  width: 100%;
+  position: relative;
+}
+body .contents main .info-wrapper .content {
+  position: absolute;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+body .contents main .info-wrapper .content .title {
+  width: 100%;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 50px;
+}
+body .contents main .receivable-orders {
+  border-bottom: 1px solid #eee;
+}
+body .contents main .receivable-orders .content .orders {
+  font-size: 20px;
+}
+body .contents main .receivable-orders .content .orders .order {
+  margin-bottom: 15px;
+}
+body .contents main .development-techs {
+  background-color: #E2EDFC;
+}
+body .contents main .development-techs .content .title {
+  border-bottom: 1px solid black;
+}
+body .contents main .development-techs .content .tech-part {
+  margin-bottom: 30px;
+}
+body .contents footer {
+  color: white;
+  padding: 15px;
+  text-align: right;
+}
+body .contents footer .sns-icons {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 100%;
+  width: 200px;
+  margin-left: auto;
+  margin-bottom: 0;
+}
+body .contents footer .sns-icons .title {
+  margin-bottom: 0;
+}
+body .contents footer .sns-icons .sns {
+  list-style: none;
+}
+body .contents footer .sns-icons .sns .sns-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+body .contents footer .sns-icons .sns .sns-link i {
+  font-size: 30px;
+  margin-left: 15px;
+}
