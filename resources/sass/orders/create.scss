@@ -1,0 +1,30 @@
+body {
+  .contents {
+    main {
+      .form {
+        width: 60%;
+        padding: 100px 0;
+        margin: 0 auto;
+        .form-group {
+          width: 100%;
+          .col {
+            input, textarea {
+              width: 100%;
+              border-radius: 30px;
+              border: 1px solid #888;
+            }
+            input {
+              padding: 5px 15px;
+            }
+            textarea {
+              padding: 15px 15px;
+            }
+          }
+        }
+        .btn-wrapper {
+          width: 150px;
+        }
+      }
+    }
+  }
+}

@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>トップページ</title>
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/'.$page.'.css') }}" rel="stylesheet">
+    @if($page == "orders/confirmation")
+      <link href="{{ asset('/css/orders/create.css') }}" rel="stylesheet">
+    @endif
     <link rel="stylesheet" href="{{ url('lib/fontawesome6.0.0/css/all.min.css') }}">
   </head>
   <body class="antialiased">
@@ -21,7 +25,7 @@
               <a class="nav-link" href="#">料金</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">お問い合わせ</a>
+              <a class="nav-link" href="{{ route('orders.create') }}">お問い合わせ</a>
             </li>
           </ul>
         </div>
