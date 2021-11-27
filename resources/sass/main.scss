@@ -1,0 +1,64 @@
+body {
+  font-family: MPLUS1Code;
+  .btn {
+    border-radius: 30px;
+  }
+  .btn:active {
+    transform: translateY(3px);
+  }
+  .btn-wrapper {
+    margin: 0 auto;
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .btns-wrapper {
+    margin: 0 auto;
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .contents {
+    main {
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 39px;
+        width: 100%;
+        z-index: 999;
+      }
+    }
+    footer {
+      color: white;
+      padding: 15px;
+      text-align: right;
+      .sns-icons {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        height: 100%;
+        width: 200px;
+        margin-left: auto;
+        margin-bottom: 0;
+        .title {
+          margin-bottom: 0;
+        }
+        .sns {
+          list-style: none;
+          .sns-link {
+            text-decoration: none;
+            cursor: pointer;
+            color: white;
+            i {
+              font-size: 30px;
+              margin-left: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
