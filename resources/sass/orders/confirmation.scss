@@ -1,0 +1,18 @@
+body {
+  .contents {
+    main {
+      .form {
+        .btns-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 300px;
+          .btn {
+            margin-left: 15px;
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+}

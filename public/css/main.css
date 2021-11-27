@@ -1,0 +1,58 @@
+body {
+  font-family: MPLUS1Code;
+}
+body .btn {
+  border-radius: 30px;
+}
+body .btn:active {
+  transform: translateY(3px);
+}
+body .btn-wrapper {
+  margin: 0 auto;
+}
+body .btn-wrapper .btn {
+  width: 100%;
+}
+body .btns-wrapper {
+  margin: 0 auto;
+}
+body .btns-wrapper .btn {
+  width: 100%;
+}
+body .contents main .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 39px;
+  width: 100%;
+  z-index: 999;
+}
+body .contents footer {
+  color: white;
+  padding: 15px;
+  text-align: right;
+}
+body .contents footer .sns-icons {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 100%;
+  width: 200px;
+  margin-left: auto;
+  margin-bottom: 0;
+}
+body .contents footer .sns-icons .title {
+  margin-bottom: 0;
+}
+body .contents footer .sns-icons .sns {
+  list-style: none;
+}
+body .contents footer .sns-icons .sns .sns-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+body .contents footer .sns-icons .sns .sns-link i {
+  font-size: 30px;
+  margin-left: 15px;
+}
