@@ -5,5 +5,6 @@
     "/css/orders/confirmation.css": "/css/orders/confirmation.css",
     "/css/orders/create.css": "/css/orders/create.css",
     "/css/main.css": "/css/main.css",
-    "/css/top.css": "/css/top.css"
+    "/css/top.css": "/css/top.css",
+    "/css/errors/500.css": "/css/errors/500.css"
 }

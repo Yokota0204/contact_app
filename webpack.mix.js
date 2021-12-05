@@ -19,4 +19,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/main.scss', 'public/css')
     .sass('resources/sass/orders/create.scss', 'public/css/orders')
     .sass('resources/sass/orders/confirmation.scss', 'public/css/orders')
+    .sass('resources/sass/errors/500.scss', 'public/css/errors')
     .sourceMaps();

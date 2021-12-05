@@ -2,6 +2,15 @@
   <x-slot name="page">
     orders/create
   </x-slot>
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
   <form action="{{ route('orders.confirmation') }}" method="POST" class="form">
     @csrf
     <h3 class="text-center border-bottom pb-3 mb-5">お問い合わせ</h3>
@@ -14,7 +23,7 @@
           class="input"
           placeholder="会社名をご入力ください。"
           @isset($order)
-            value="{{ $order->company }}"
+            value="{{ old('company') }}"
           @endisset
         >
       </div>

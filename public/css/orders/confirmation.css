@@ -1,3 +1,14 @@
+body {
+  min-height: 100vh;
+}
+body .contents {
+  height: 100%;
+}
+body .contents main {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
 body .contents main .form .btns-wrapper {
   display: flex;
   align-items: center;
