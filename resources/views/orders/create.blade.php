@@ -2,13 +2,21 @@
   <x-slot name="page">
     orders/create
   </x-slot>
+  <script src="{{ asset('/js/orders/create.js') }}" type="text/javascript"></script>
   @if ($errors->any())
-    <div class="alert alert-danger">
+    <div id="alert" class="message-box alert alert-danger">
       <ul>
         @foreach ($errors->all() as $error)
           <li>{{ $error }}</li>
         @endforeach
       </ul>
+      <span id="closeErr">×</span>
+    </div>
+  @endif
+  @if (session('success'))
+    <div id="message" class="message-box message alert">
+      <p>{{ session('success') }}</p>
+      <span id="closeMsg">×</span>
     </div>
   @endif
   <form action="{{ route('orders.confirmation') }}" method="POST" class="form">
@@ -23,6 +31,8 @@
           class="input"
           placeholder="会社名をご入力ください。"
           @isset($order)
+            value="{{ $order->company }}"
+          @else
             value="{{ old('company') }}"
           @endisset
         >
@@ -39,6 +49,8 @@
           required
           @isset($order)
             value="{{ $order->client }}"
+          @else
+            value="{{ old('client') }}"
           @endisset
         >
       </div>
@@ -54,6 +66,8 @@
           required
           @isset($order)
             value="{{ $order->email }}"
+          @else
+            value="{{ old('email') }}"
           @endisset
         >
       </div>
@@ -68,7 +82,7 @@
           class="input"
           placeholder="お問い合わせ内容を入力してください。"
           required
-        >@isset($order){{ $order->question }}@endisset</textarea>
+        >@isset($order){{ $order->question }}@else{{ old('question') }}@endisset</textarea>
       </div>
     </div>
     <div class="btn-wrapper">

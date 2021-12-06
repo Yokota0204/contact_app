@@ -27,15 +27,7 @@ class OrderController extends Controller
 	}
 
 	public function confirmation(Request $request) {
-		$request->validate([
-			'client' => 'required',
-			'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-			'question' => 'required'
-		], [
-			'client.required' => '名前は必須項目です。',
-			'email.required' => 'メールアドレスは必須項目です。',
-			'question.required' => 'お問い合わせ内容は必須項目です。'
-		]);
+		$this->validate_order($request);
 
 		$order = new Order();
 		$order->company = $request->company;
@@ -47,15 +39,7 @@ class OrderController extends Controller
 	}
 
 	public function store(Request $request) {
-		$request->validate([
-			'client' => 'required',
-			'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-			'question' => 'required'
-		], [
-			'client.required' => '名前は必須項目です。',
-			'email.required' => 'メールアドレスは必須項目です。',
-			'question.required' => 'お問い合わせ内容は必須項目です。'
-		]);
+		$this->validate_order($request);
 
 		DB::beginTransaction();
 
@@ -80,6 +64,20 @@ class OrderController extends Controller
 			return redirect()->route('errors.500');
 		}
 
-		return redirect()->route('orders.create');
+		return redirect()->route('orders.create')->with('success', 'お問い合わせを送信しました。');
+	}
+
+	public function validate_order($request) {
+		$request->validate([
+			'client' => 'required',
+			'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+			'question' => 'required'
+		], [
+			'client.required' => '名前は必須項目です。',
+			'email.required' => 'メールアドレスは必須項目です。',
+			'email.unique' => '既に登録されているメールアドレスです。',
+			'email.max' => 'メールアドレスが長すぎます。',
+			'question.required' => 'お問い合わせ内容は必須項目です。'
+		]);
 	}
 }
