@@ -3,7 +3,7 @@
     orders/confirmation
   </x-slot>
   <script src="{{ asset('/js/orders/confirmation.js') }}" type="text/javascript"></script>
-  <form id="form" action="{{ route('orders.store') }}" method="POST" class="form">
+  <form id="form" action="{{ route('orders.store') }}" method="POST" class="form confirmation-form">
     @csrf
     <h3 class="text-center border-bottom pb-3 mb-5">確認画面</h3>
     <div class="row form-group">

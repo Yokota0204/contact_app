@@ -1,3 +1,21 @@
+body .contents main .message-box {
+  display: flex;
+}
+body .contents main .message-box ul {
+  margin-bottom: 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+body .contents main .message-box p {
+  margin-bottom: 0;
+}
+body .contents main .message-box span {
+  margin-left: auto;
+}
+body .contents main .message {
+  background-color: #CCE5CD;
+  color: #3E6840;
+}
 body .contents main .form {
   width: 60%;
   padding: 100px 0;
@@ -19,4 +37,8 @@ body .contents main .form .form-group .col textarea {
 }
 body .contents main .form .btn-wrapper {
   width: 150px;
+}
+
+li {
+  list-style: none;
 }

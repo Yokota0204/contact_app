@@ -1,6 +1,23 @@
 body {
   .contents {
     main {
+      .message-box {
+        display: flex;
+        ul {
+          margin-bottom: 0;
+          padding-inline-start: 0;
+        }
+        p {
+          margin-bottom: 0;
+        }
+        span {
+          margin-left: auto;
+        }
+      }
+      .message {
+        background-color: #CCE5CD;
+        color: #3E6840;
+      }
       .form {
         width: 60%;
         padding: 100px 0;
@@ -27,4 +44,8 @@ body {
       }
     }
   }
+}
+
+li {
+  list-style: none;
 }
