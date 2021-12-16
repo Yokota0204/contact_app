@@ -366,6 +366,39 @@ eval("/* module decorator */ module = __webpack_require__.nmd(module);\nvar __WE
 
 /***/ }),
 
+/***/ "./resources/sass/orders/index.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/orders/index.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvaW5kZXguc2Nzcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvaW5kZXguc2Nzcz8yNzgxIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxuZXhwb3J0IHt9OyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/sass/orders/index.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/orders/create.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/orders/create.scss ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvY3JlYXRlLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3Mvb3JkZXJzL2NyZWF0ZS5zY3NzPzkyYmQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/orders/create.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/orders/confirmation.scss":
+/*!*************************************************!*\
+  !*** ./resources/sass/orders/confirmation.scss ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvY29uZmlybWF0aW9uLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3Mvb3JkZXJzL2NvbmZpcm1hdGlvbi5zY3NzPzMwNGMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/orders/confirmation.scss\n");
+
+/***/ }),
+
 /***/ "./resources/sass/errors/500.scss":
 /*!****************************************!*\
   !*** ./resources/sass/errors/500.scss ***!
@@ -373,7 +406,18 @@ eval("/* module decorator */ module = __webpack_require__.nmd(module);\nvar __WE
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9lcnJvcnMvNTAwLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvZXJyb3JzLzUwMC5zY3NzPzZlNTQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/errors/500.scss\n");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9lcnJvcnMvNTAwLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvZXJyb3JzLzUwMC5zY3NzPzllNmYiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/errors/500.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/admin/login.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/admin/login.scss ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9hZG1pbi9sb2dpbi5zY3NzLmpzIiwibWFwcGluZ3MiOiI7QUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9zYXNzL2FkbWluL2xvZ2luLnNjc3M/NDM3MCJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW5cbmV4cG9ydCB7fTsiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/sass/admin/login.scss\n");
 
 /***/ }),
 
@@ -410,25 +454,25 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
-/***/ "./resources/sass/orders/create.scss":
-/*!*******************************************!*\
-  !*** ./resources/sass/orders/create.scss ***!
-  \*******************************************/
+/***/ "./resources/sass/form.scss":
+/*!**********************************!*\
+  !*** ./resources/sass/form.scss ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvY3JlYXRlLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3Mvb3JkZXJzL2NyZWF0ZS5zY3NzPzAxZDkiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/orders/create.scss\n");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9mb3JtLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvZm9ybS5zY3NzP2I0ODIiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/form.scss\n");
 
 /***/ }),
 
-/***/ "./resources/sass/orders/confirmation.scss":
-/*!*************************************************!*\
-  !*** ./resources/sass/orders/confirmation.scss ***!
-  \*************************************************/
+/***/ "./resources/sass/message_box.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/message_box.scss ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvY29uZmlybWF0aW9uLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3Mvb3JkZXJzL2NvbmZpcm1hdGlvbi5zY3NzPzVjNDYiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/orders/confirmation.scss\n");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9tZXNzYWdlX2JveC5zY3NzLmpzIiwibWFwcGluZ3MiOiI7QUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9zYXNzL21lc3NhZ2VfYm94LnNjc3M/NzkzNSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW5cbmV4cG9ydCB7fTsiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/sass/message_box.scss\n");
 
 /***/ }),
 
@@ -588,11 +632,15 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0,
-/******/ 			"css/orders/confirmation": 0,
-/******/ 			"css/orders/create": 0,
+/******/ 			"css/message_box": 0,
+/******/ 			"css/form": 0,
 /******/ 			"css/main": 0,
 /******/ 			"css/top": 0,
-/******/ 			"css/errors/500": 0
+/******/ 			"css/admin/login": 0,
+/******/ 			"css/errors/500": 0,
+/******/ 			"css/orders/confirmation": 0,
+/******/ 			"css/orders/create": 0,
+/******/ 			"css/orders/index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -642,13 +690,17 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/top.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/main.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/orders/create.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/orders/confirmation.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/errors/500.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/login","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/index"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/login","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/index"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/login","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/index"], () => (__webpack_require__("./resources/sass/top.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/login","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/index"], () => (__webpack_require__("./resources/sass/main.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/login","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/index"], () => (__webpack_require__("./resources/sass/form.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/login","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/index"], () => (__webpack_require__("./resources/sass/message_box.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/login","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/index"], () => (__webpack_require__("./resources/sass/orders/index.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/login","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/index"], () => (__webpack_require__("./resources/sass/orders/create.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/login","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/index"], () => (__webpack_require__("./resources/sass/orders/confirmation.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/login","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/index"], () => (__webpack_require__("./resources/sass/errors/500.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/login","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/index"], () => (__webpack_require__("./resources/sass/admin/login.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

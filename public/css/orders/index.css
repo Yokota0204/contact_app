@@ -1,0 +1,50 @@
+.navbar .navbar-collapse .navbar-nav .nav-item .btn-logout {
+  background-color: transparent;
+  border: none;
+}
+
+.search-board {
+  background-color: #fff;
+  margin: 30px 50px;
+  padding: 10px 50px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+}
+.search-board .search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-board .search-form .form-item {
+  margin-left: 15px;
+}
+.search-board .search-form .form-item .input {
+  border-radius: 30px;
+  padding: 5px 15px;
+  border: 1px solid #eee;
+}
+.search-board .search-form .form-item select {
+  width: 130px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px 15px;
+}
+.search-board .search-form .date .input {
+  width: 155px;
+}
+.search-board .search-form .client .input {
+  width: 200px;
+}
+.search-board .search-form .button .btn {
+  width: 50px;
+}
+
+.modal {
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+}
+.modal .modal-content {
+  border-radius: 30px;
+  padding: 30px;
+}

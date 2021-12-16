@@ -12,6 +12,14 @@ use Exception;
 
 class OrderController extends Controller
 {
+	public function index() {
+		return view('orders.index');
+	}
+
+	public function show() {
+		return view('orders.show');
+	}
+
 	public function create() {
 		return view('orders.create');
 	}
@@ -70,17 +78,21 @@ class OrderController extends Controller
 		return redirect()->route('orders.create')->with('success', 'お問い合わせを送信しました。');
 	}
 
-	public function validate_order($request) {
-		$request->validate([
+	public function validate_order(Request $request) {
+		$validate_rule = [
 			'client' => 'required',
-			'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+			'email' => ['bail', 'required', 'string', 'email', 'unique:users, email'],
 			'question' => 'required'
-		], [
+		];
+
+		$validate_message = [
 			'client.required' => '名前は必須項目です。',
 			'email.required' => 'メールアドレスは必須項目です。',
 			'email.unique' => '既に登録されているメールアドレスです。',
 			'email.max' => 'メールアドレスが長すぎます。',
 			'question.required' => 'お問い合わせ内容は必須項目です。'
-		]);
+		];
+
+		$request->validate($validate_rule, $validate_message);
 	}
 }

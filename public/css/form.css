@@ -1,0 +1,19 @@
+.form {
+  width: 60%;
+  padding: 100px 0;
+  margin: 0 auto;
+}
+.form input, .form textarea {
+  width: 100%;
+  border-radius: 30px;
+  border: 1px solid #888;
+}
+.form input {
+  padding: 5px 15px;
+}
+.form textarea {
+  padding: 15px 15px;
+}
+.form .btn-wrapper {
+  width: 150px;
+}

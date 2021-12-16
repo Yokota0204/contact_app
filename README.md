@@ -34,6 +34,11 @@ $ docker-compose run myapp php artisan ui bootstrap
 $ docker-compose run myapp npm install && npm run dev
 ```
 
+### ログイン機能に必要なパッケージ（Breeze）をインストール
+```
+$ docker-compose run myapp composer require laravel/breeze --dev
+```
+
 # 参照
 
 ## レポジトリ
@@ -43,3 +48,4 @@ $ docker-compose run myapp npm install && npm run dev
 - note｜案件受注サイト構築　②環境構築 - https://note.com/yokota_tech/n/n7f1fdc26c1b2
 - note｜案件受注サイト構築　③開発 - https://note.com/yokota_tech/n/nb4b70f3f7366
 - Zenn｜【Laravel】Laravel6.*にBootstrap4を導入する2つの方法 - https://zenn.dev/shimotaroo/articles/9f295a5b9c9912
+- Reffect｜Laravel Breezeでマルチ認証(Multi Authentification)の徹底解説 - https://reffect.co.jp/laravel/breeze_multi_auth

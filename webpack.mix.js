@@ -12,13 +12,18 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .js( 'resources/js/orders/confirmation.js', 'public/js/orders' )
-    .js( 'resources/js/orders/create.js', 'public/js/orders' )
-    .autoload({"jquery": [ '$', 'window.jQuery' ],})
-    .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/top.scss', 'public/css')
-    .sass('resources/sass/main.scss', 'public/css')
-    .sass('resources/sass/orders/create.scss', 'public/css/orders')
-    .sass('resources/sass/orders/confirmation.scss', 'public/css/orders')
-    .sass('resources/sass/errors/500.scss', 'public/css/errors')
-    .sourceMaps();
+  .js( 'resources/js/orders/index.js', 'public/js/orders' )
+  .js( 'resources/js/orders/confirmation.js', 'public/js/orders' )
+  .js( 'resources/js/orders/create.js', 'public/js/orders' )
+  .autoload({"jquery": [ '$', 'window.jQuery' ],})
+  .sass('resources/sass/app.scss', 'public/css')
+  .sass('resources/sass/top.scss', 'public/css')
+  .sass('resources/sass/main.scss', 'public/css')
+  .sass('resources/sass/form.scss', 'public/css')
+  .sass('resources/sass/message_box.scss', 'public/css')
+  .sass('resources/sass/orders/index.scss', 'public/css/orders')
+  .sass('resources/sass/orders/create.scss', 'public/css/orders')
+  .sass('resources/sass/orders/confirmation.scss', 'public/css/orders')
+  .sass('resources/sass/errors/500.scss', 'public/css/errors')
+  .sass('resources/sass/admin/login.scss', 'public/css/admin')
+  .sourceMaps();

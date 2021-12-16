@@ -1,11 +1,16 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/orders/index.js": "/js/orders/index.js",
     "/js/orders/confirmation.js": "/js/orders/confirmation.js",
     "/js/orders/create.js": "/js/orders/create.js",
     "/css/app.css": "/css/app.css",
-    "/css/orders/confirmation.css": "/css/orders/confirmation.css",
-    "/css/orders/create.css": "/css/orders/create.css",
+    "/css/message_box.css": "/css/message_box.css",
+    "/css/form.css": "/css/form.css",
     "/css/main.css": "/css/main.css",
     "/css/top.css": "/css/top.css",
-    "/css/errors/500.css": "/css/errors/500.css"
+    "/css/admin/login.css": "/css/admin/login.css",
+    "/css/errors/500.css": "/css/errors/500.css",
+    "/css/orders/confirmation.css": "/css/orders/confirmation.css",
+    "/css/orders/create.css": "/css/orders/create.css",
+    "/css/orders/index.css": "/css/orders/index.css"
 }
