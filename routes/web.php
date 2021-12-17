@@ -26,8 +26,4 @@ require __DIR__.'/auth.php';
 
 Route::prefix('admin')->name('admin.')->group(function(){
   require __DIR__.'/admin.php';
-
-  Route::get('/orders', [OrderController::class, 'index'])
-    ->middleware(['auth:admin'])
-    ->name('orders.index');
 });

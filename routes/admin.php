@@ -11,9 +11,14 @@ use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/show', [OrderController::class, 'show'])
+
+Route::get('/orders', [OrderController::class, 'index'])
+->middleware(['auth:admin'])
+->name('orders.index');
+
+Route::get('/orders/{id}', [OrderController::class, 'show'])
   ->middleware('auth:admin')
-  ->name('show');
+  ->name('orders.show');
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
   ->middleware('guest:admin')
