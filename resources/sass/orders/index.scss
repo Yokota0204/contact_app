@@ -55,6 +55,19 @@ a:hover {
   }
 }
 
+.pagination-nav {
+  width: 80%;
+  margin: 0 auto;
+  .pagination {
+    .page-link {
+      border-radius: 30px;
+    }
+    .next {
+      margin-left: auto;
+    }
+  }
+}
+
 .orders-wrapper {
   text-align: center;
   .row {

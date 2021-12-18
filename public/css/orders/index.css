@@ -49,6 +49,17 @@ a:hover {
   width: 50px;
 }
 
+.pagination-nav {
+  width: 80%;
+  margin: 0 auto;
+}
+.pagination-nav .pagination .page-link {
+  border-radius: 30px;
+}
+.pagination-nav .pagination .next {
+  margin-left: auto;
+}
+
 .orders-wrapper {
   text-align: center;
 }

@@ -59,6 +59,22 @@
       </div>
     </form>
   </div>
+  <nav class="pagination-nav">
+    <ul class="pagination">
+      <li class="page-item pre">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item next">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
   <div class="orders-wrapper">
     <div class="header-row row">
       <div class="col-2">受付日時</div>
