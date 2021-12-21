@@ -1,0 +1,110 @@
+.container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  .back-link {
+    display: block;
+  }
+  .order-wrapper {
+    padding: 30px 50px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    background-color: #fff;
+    .row {
+      margin-bottom: 10px;
+      .col-2 {
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        background-color: #5DACF2;
+        color: #fff;
+        padding: 10px 15px;
+      }
+      .col {
+        padding: 10px 15px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        border: 1px solid #ddd;
+      }
+    }
+    .status {
+      .col {
+        select {
+          border: none;
+          width: 100%;
+        }
+      }
+    }
+    .order-body {
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px solid #ddd;
+    }
+  }
+  .replies-wrapper {
+    width: 80%;
+    margin: 30px 0 200px auto;
+    .reply {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      padding: 30px 50px;
+      .header {
+        display: flex;
+        align-items: center;
+        .datetime {
+          margin-left: auto;
+        }
+      }
+      .row {
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        .replier {
+          background-color: #A9D0F2;
+          border-radius: 30px;
+          padding: 5px 15px;
+          width: intrinsic;
+          width: -moz-max-content;
+          width: -webkit-max-content;
+          width: max-content;
+          margin-left: auto;
+        }
+      }
+      .to, .cc, .bcc {
+        border-bottom: 1px solid #ddd;
+      }
+      .body {
+        margin-top: 15px;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  }
+  .reply-wrapper {
+    width: 100%;
+    background-color: #fff;
+    padding: 100px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    .form-group {
+      .form-item {
+        width: 100%;
+        border-radius: 30px;
+        border: 1px solid #ddd;
+      }
+      .input {
+        padding: 5px 15px;
+      }
+      .textarea {
+        padding: 15px 20px;
+      }
+    }
+    .file {
+      .plus-file {
+        cursor: pointer;
+      }
+      .input {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

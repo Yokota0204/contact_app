@@ -1,0 +1,12 @@
+.navbar .navbar-collapse .navbar-nav .nav-item .btn-logout {
+  background-color: transparent;
+  border: none;
+}
+
+.modal {
+  backdrop-filter: blur(12px);
+  .modal-content {
+    border-radius: 30px;
+    padding: 30px;
+  }
+}

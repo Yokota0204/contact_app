@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
-    "/js/orders/index.js": "/js/orders/index.js",
+    "/js/admin/navbar.js": "/js/admin/navbar.js",
+    "/js/orders/show.js": "/js/orders/show.js",
     "/js/orders/confirmation.js": "/js/orders/confirmation.js",
     "/js/orders/create.js": "/js/orders/create.js",
     "/css/app.css": "/css/app.css",
@@ -8,9 +9,11 @@
     "/css/form.css": "/css/form.css",
     "/css/main.css": "/css/main.css",
     "/css/top.css": "/css/top.css",
+    "/css/admin/navbar.css": "/css/admin/navbar.css",
     "/css/admin/login.css": "/css/admin/login.css",
     "/css/errors/500.css": "/css/errors/500.css",
     "/css/orders/confirmation.css": "/css/orders/confirmation.css",
     "/css/orders/create.css": "/css/orders/create.css",
+    "/css/orders/show.css": "/css/orders/show.css",
     "/css/orders/index.css": "/css/orders/index.css"
 }

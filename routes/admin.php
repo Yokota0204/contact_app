@@ -16,7 +16,11 @@ Route::get('/orders', [OrderController::class, 'index'])
 ->middleware(['auth:admin'])
 ->name('orders.index');
 
-Route::get('/orders/{id}', [OrderController::class, 'show'])
+// Route::get('/orders/{id}', [OrderController::class, 'show'])
+//   ->middleware('auth:admin')
+//   ->name('orders.show');
+
+Route::get('/orders/show', [OrderController::class, 'show'])
   ->middleware('auth:admin')
   ->name('orders.show');
 

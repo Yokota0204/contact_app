@@ -7,11 +7,6 @@ a:hover {
   cursor: pointer;
 }
 
-.navbar .navbar-collapse .navbar-nav .nav-item .btn-logout {
-  background-color: transparent;
-  border: none;
-}
-
 .search-board {
   background-color: #fff;
   margin: 30px 50px;
@@ -76,13 +71,4 @@ a:hover {
 }
 .orders-wrapper .rows-wrapper .row {
   margin-bottom: 5px;
-}
-
-.modal {
-  -webkit-backdrop-filter: blur(12px);
-          backdrop-filter: blur(12px);
-}
-.modal .modal-content {
-  border-radius: 30px;
-  padding: 30px;
 }

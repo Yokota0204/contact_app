@@ -16,6 +16,11 @@ class OrderController extends Controller
 		return view('orders.index');
 	}
 
+	// public function show($id) {
+	// 	$data = $id;
+	// 	return view('orders.show', $data);
+	// }
+
 	public function show() {
 		return view('orders.show');
 	}

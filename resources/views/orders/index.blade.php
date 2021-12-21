@@ -6,27 +6,11 @@
 
 @section('stylesheet')
   <link rel="stylesheet" href="{{ asset('css/orders/index.css') }}">
-  <link rel="stylesheet" href="{{ asset('lib/fontawesome6.0.0/css/all.min.css') }}">
-  <script src="{{ asset('js/orders/index.js') }}" type="text/javascript"></script>
 @endsection
 
 @section('content')
+  <x-header/>
   {{--メインコンテンツ --}}
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">福岡システム開発　ダッシュボード</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto my-2 my-lg-0">
-        <li class="nav-item">
-          <a class="nav-link"><i class="fas fa-user"></i>&nbsp;User: #KDGKGEW</a>
-        </li>
-        <li class="nav-item">
-          <button id="logoutBtn" class="nav-link btn-logout" type="button">
-            <i class="fas fa-sign-out-alt"></i>&nbsp;ログアウト
-          </button>
-        </li>
-      </ul>
-    </div>
-  </nav>
   <div class="search-board">
     <form class="search-form" action="" method="GET">
       @csrf
@@ -84,14 +68,14 @@
       <div class="col">メールアドレス</div>
     </div>
     <div class="rows-wrapper">
-      <a class="row">
+      <a class="row" href="{{ route('admin.orders.show') }}">
         <div class="col-2">2021/05/31 22:33</div>
         <div class="col-1">対応中</div>
         <div class="col">株式会社雑談兄弟</div>
         <div class="col">横田 陽平</div>
         <div class="col">yokota.02210301@gmail.com</div>
       </a>
-      <a class="row">
+      <a class="row" href="{{ route('admin.orders.show') }}">
         <div class="col-2">2021/05/31 22:33</div>
         <div class="col-1">対応中</div>
         <div class="col">株式会社雑談兄弟</div>
@@ -103,22 +87,4 @@
 @endsection
 
 @section('modal')
-  {{-- モーダル --}}
-  <div id="modal" class="modal" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div id="pop_up" class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalLabel">ログアウトしますか？</h5>
-          <button type="button" class="close close-btn" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form class="modal-footer" action="{{ route('admin.logout') }}" method="POST">
-          @csrf
-          <button type="button" class="btn btn-secondary close-btn">閉じる</button>
-          <button type="submit" class="btn btn-primary">ログアウト</button>
-        </form>
-      </div>
-    </div>
-  </div>
 @endsection
