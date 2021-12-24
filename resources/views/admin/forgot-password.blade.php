@@ -1,36 +1,25 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.dashboard')
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
+@section('stylesheet')
+  <link rel="stylesheet" href="{{ asset('css/form.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin/forgot-password.css') }}">
+@endsection
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+@section('content')
+  <form class="form" method="POST" action="{{ route('admin.password.email') }}">
+    @csrf
+    <h2 class="text-center mb-4">パスワード変更用リンク送信</h2>
+    <x-auth-session-status class="mb-4" :status="session('status')" />
+    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <div class="form-group">
+      <x-label for="email" :value="__('auth.form.email')" />
+      <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+    </div>
+    <div class="btn-wrapper">
+      <button class="btn btn-primary">認証メール送信</button>
+    </div>
+  </form>
+@endsection
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+@section('modal')
+@endsection

@@ -27,6 +27,7 @@ mix.js('resources/js/app.js', 'public/js')
   .sass('resources/sass/orders/create.scss', 'public/css/orders')
   .sass('resources/sass/orders/confirmation.scss', 'public/css/orders')
   .sass('resources/sass/errors/500.scss', 'public/css/errors')
+  .sass('resources/sass/admin/forgot-password.scss', 'public/css/admin')
   .sass('resources/sass/admin/login.scss', 'public/css/admin')
   .sass('resources/sass/admin/navbar.scss', 'public/css/admin')
   .sourceMaps();

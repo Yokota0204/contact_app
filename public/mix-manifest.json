@@ -11,6 +11,7 @@
     "/css/top.css": "/css/top.css",
     "/css/admin/navbar.css": "/css/admin/navbar.css",
     "/css/admin/login.css": "/css/admin/login.css",
+    "/css/admin/forgot-password.css": "/css/admin/forgot-password.css",
     "/css/errors/500.css": "/css/errors/500.css",
     "/css/orders/confirmation.css": "/css/orders/confirmation.css",
     "/css/orders/create.css": "/css/orders/create.css",
