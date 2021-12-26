@@ -1,0 +1,29 @@
+.container {
+  padding: 50px 0;
+  .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 50px 0;
+    margin-bottom: 100px;
+    .profile-image {
+      text-align: center;
+      width: 50%;
+      img {
+        display: block;
+        width: 200px;
+        border-radius: 300px;
+        margin: 15px auto;
+      }
+      .camera-icon {
+        border: none;
+        font-size: 20px;
+      }
+    }
+    .profile-text {
+      text-align: center;
+      width: 50%;
+    }
+  }
+}

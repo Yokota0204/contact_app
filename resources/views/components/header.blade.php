@@ -3,7 +3,7 @@
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto my-2 my-lg-0">
       <li class="nav-item">
-        <a class="nav-link"><i class="fas fa-user"></i>&nbsp;User: #KDGKGEW</a>
+        <a class="nav-link" href="{{ route('admin.show') }}"><i class="fas fa-user"></i>&nbsp;User: #KDGKGEW</a>
       </li>
       <li class="nav-item">
         <button id="logoutBtn" class="nav-link btn-logout" type="button">

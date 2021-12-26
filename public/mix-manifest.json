@@ -12,9 +12,11 @@
     "/css/admin/navbar.css": "/css/admin/navbar.css",
     "/css/admin/login.css": "/css/admin/login.css",
     "/css/admin/forgot-password.css": "/css/admin/forgot-password.css",
+    "/css/admin/show.css": "/css/admin/show.css",
     "/css/errors/500.css": "/css/errors/500.css",
     "/css/orders/confirmation.css": "/css/orders/confirmation.css",
     "/css/orders/create.css": "/css/orders/create.css",
     "/css/orders/show.css": "/css/orders/show.css",
-    "/css/orders/index.css": "/css/orders/index.css"
+    "/css/orders/index.css": "/css/orders/index.css",
+    "/css/orders/table.css": "/css/orders/table.css"
 }

@@ -1,12 +1,3 @@
-a {
-  color: #888;
-}
-
-a:hover {
-  text-decoration: none;
-  cursor: pointer;
-}
-
 .search-board {
   background-color: #fff;
   margin: 30px 50px;
@@ -45,7 +36,7 @@ a:hover {
 }
 
 .pagination-nav {
-  width: 80%;
+  width: 87%;
   margin: 0 auto;
 }
 .pagination-nav .pagination .page-link {
@@ -53,22 +44,4 @@ a:hover {
 }
 .pagination-nav .pagination .next {
   margin-left: auto;
-}
-
-.orders-wrapper {
-  text-align: center;
-}
-.orders-wrapper .row {
-  width: 80%;
-  margin: 0 auto;
-  border: 1px solid #ddd;
-  border-radius: 30px;
-  padding: 15px 0;
-  background-color: #fff;
-}
-.orders-wrapper .header-row {
-  margin-bottom: 30px;
-}
-.orders-wrapper .rows-wrapper .row {
-  margin-bottom: 5px;
 }

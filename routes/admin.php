@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 
 Route::get('/', [OrderController::class, 'index'])
@@ -27,6 +28,10 @@ Route::get('/orders', [OrderController::class, 'index'])
 Route::get('/orders/show', [OrderController::class, 'show'])
   ->middleware('auth:admin')
   ->name('orders.show');
+
+Route::get('/show', [AdminController::class, 'show'])
+  ->middleware('auth:admin')
+  ->name('show');
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
   ->middleware('guest:admin')
