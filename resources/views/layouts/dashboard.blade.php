@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('lib/fontawesome6.0.0/css/all.min.css') }}">
     @yield('stylesheet')
     <script src="{{ asset('js/admin/navbar.js') }}" type="text/javascript"></script>
+    @yield('script')
   </head>
   <body>
     <div class="contents">

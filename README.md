@@ -34,9 +34,16 @@ $ docker-compose run myapp php artisan ui bootstrap
 $ docker-compose run myapp npm install && npm run dev
 ```
 
-### ログイン機能に必要なパッケージ（Breeze）をインストール
+### Breeze（ログイン機能）をインストール
 ```
 $ docker-compose run myapp composer require laravel/breeze --dev
+```
+
+### Cropper.jsをインストール
+```
+$ docker-compose run myapp npm install cropper
+$ cd public/lib
+$ git clone https://github.com/Yokota0204/cropperjs.git
 ```
 
 # 参照

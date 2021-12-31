@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('stylesheet')
+  <link rel="stylesheet" href="{{ asset('lib/cropperjs/dist/cropper.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/orders/table.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin/show.css') }}">
 @endsection
@@ -9,15 +10,16 @@
   <x-header/>
   <div class="container">
     <div class="profile">
-      <div class="profile-image">
-        <img src="{{ asset('images/user.jpeg') }}" alt="ユーザー画像">
+      <label class="profile-image">
+        <img id="userImg" src="{{ asset('images/user.jpeg') }}" alt="ユーザー画像">
         <div class="camera-icon"><i class="fas fa-camera"></i></div>
-      </div>
+        <input id="imgInput" type="file" name="user_img" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+      </label>
       <div class="profile-text">
         <h4>
           <i class="fas fa-user-graduate"></i>&nbsp;
           横田　陽平&nbsp;
-          <a class="btn btn-outline-secondary">設定</a>
+          <a class="btn btn-outline-secondary" href="{{ route('admin.config') }}">設定</a>
         </h4>
         <p class="mb-5">GNDKNG325KD</p>
         <h5>test@gmail.com</h5>
@@ -25,7 +27,7 @@
       </div>
     </div>
     <div class="orders-wrapper">
-      <h3 class="text-center border-bottom pb-2 mb-5">担当案件一覧</h3>
+      <h3 class="text-center border-bottom pb-2 mb-5">直近の担当案件一覧</h3>
       <div class="header-row row">
         <div class="col-2">受付日時</div>
         <div class="col-2">ステータス</div>
@@ -54,4 +56,5 @@
 @endsection
 
 @section('modal')
+  <x-cropper-modal></x-cropper-modal>
 @endsection

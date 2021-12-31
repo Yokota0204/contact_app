@@ -9,7 +9,8 @@
 .message-box p {
   margin-bottom: 0;
 }
-.message-box span {
+.message-box .close-btn {
+  cursor: pointer;
   margin-left: auto;
 }
 

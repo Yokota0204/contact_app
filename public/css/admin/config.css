@@ -1,0 +1,79 @@
+.page-title {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.config-wrapper {
+  display: flex;
+}
+.config-wrapper .side-bar {
+  height: 100vh;
+  width: 300px;
+  border-top: solid 1px #ddd;
+  border-right: solid 1px #ddd;
+  padding: 0;
+}
+.config-wrapper .side-bar .bar-item {
+  list-style: none;
+  padding: 15px;
+  border-bottom: solid 1px #ddd;
+  cursor: pointer;
+}
+.config-wrapper .side-bar .bar-item .link {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+.config-wrapper .side-bar .bar-item:hover {
+  background-color: #eee;
+}
+.config-wrapper .side-bar .active {
+  background-color: #eee;
+}
+.config-wrapper .config {
+  display: none;
+  width: 100%;
+}
+.config-wrapper .profile-config {
+  padding: 100px 0;
+  width: 100%;
+}
+.config-wrapper .profile-config .image {
+  display: block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  text-align: center;
+}
+.config-wrapper .profile-config .image img {
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  margin: 15px auto;
+}
+
+.user-config {
+  padding: 100px 50px;
+}
+.user-config .users-wrapper .btns-wrapper {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 0 15px auto;
+}
+.user-config .users-wrapper .btns-wrapper .btn {
+  width: 120px;
+  margin-left: 10px;
+}
+.user-config .users-wrapper .users .row {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+.user-config .users-wrapper .users .header-row .check input {
+  font-size: 25px;
+}
+.user-config .users-wrapper .users .body-row:hover {
+  box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.15);
+}

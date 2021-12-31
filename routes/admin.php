@@ -33,12 +33,24 @@ Route::get('/show', [AdminController::class, 'show'])
   ->middleware('auth:admin')
   ->name('show');
 
+Route::get('/config', [AdminController::class, 'config'])
+  ->middleware('auth:admin')
+  ->name('config');
+
+Route::post('/destroy', [AdminController::class, 'destroy'])
+  ->middleware('auth:admin');
+
 Route::get('/register', [RegisteredUserController::class, 'create'])
-  ->middleware('guest:admin')
   ->name('register');
 
-Route::post('/register', [RegisteredUserController::class, 'store'])
-  ->middleware('guest:admin');
+// Route::get('/register', [RegisteredUserController::class, 'create'])
+//   ->middleware('auth:admin')
+//   ->name('register');
+
+Route::post('/register', [RegisteredUserController::class, 'store']);
+
+// Route::post('/register', [RegisteredUserController::class, 'store'])
+//   ->middleware('auth:admin');
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
   ->middleware('guest:admin')
