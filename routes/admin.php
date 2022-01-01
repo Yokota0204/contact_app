@@ -37,6 +37,10 @@ Route::get('/config', [AdminController::class, 'config'])
   ->middleware('auth:admin')
   ->name('config');
 
+Route::post('/update/auth', [AdminController::class, 'update_auth'])
+  ->middleware('auth:admin')
+  ->name('update.auth');
+
 Route::post('/destroy', [AdminController::class, 'destroy'])
   ->middleware('auth:admin');
 

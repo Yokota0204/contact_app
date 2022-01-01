@@ -72,32 +72,34 @@
         <div class="users">
           @csrf
           <div class="row header-row">
-            <div for="checkAll" class="col-1 check">
-              <label for="checkAll">全選択</label>
+            <div for="checkAll" class="col-check column check">
               <input id="checkAll" type="checkbox">
             </div>
-            <div class="col-2">権限</div>
-            <div class="col">名前</div>
-            <div class="col">登録日</div>
-            <div class="col-1"></div>
+            <div class="col-2 column">権限</div>
+            <div class="col column">名前</div>
+            <div class="col-2 column">登録日</div>
+            <div class="col-2 column">更新日</div>
+            <div class="col-edit column"></div>
           </div>
           <div class="row body-row user">
-            <div class="col-1 check">
+            <div class="col-check column check">
               <input class="user-check" type="checkbox" name="users[]">
             </div>
-            <div class="col-2">ルート</div>
-            <div class="col">横田 陽平</div>
-            <div class="col">2021/12/29 10:08</div>
-            <div class="col-1"><a href="">編集</a></div>
+            <div class="col-2 column select-row">ルート</div>
+            <div class="col column select-row">横田 陽平</div>
+            <div class="col-2 column select-row">2021/12/29 10:08</div>
+            <div class="col-2 column select-row">2021/12/29 10:08</div>
+            <div class="col-edit column edit-open">編集</div>
           </div>
           <div class="row body-row user">
-            <div class="col-1 check">
+            <div class="col-check column check">
               <input class="user-check" type="checkbox" name="users[]">
             </div>
-            <div class="col-2">リーダー</div>
-            <div class="col">横田 健太郎</div>
-            <div class="col">2021/12/29 10:08</div>
-            <div class="col-1"><a href="">編集</a></div>
+            <div class="col-2 column select-row">リーダー</div>
+            <div class="col column select-row">横田 健太郎</div>
+            <div class="col-2 column select-row">2021/12/29 10:08</div>
+            <div class="col-2 column select-row">2021/12/29 10:08</div>
+            <div class="col-edit column edit-open">編集</div>
           </div>
         </div>
       </form>
@@ -107,4 +109,5 @@
 
 @section('modal')
   <x-cropper-modal></x-cropper-modal>
+  <x-edit-auth-modal></x-edit-auth-modal>
 @endsection

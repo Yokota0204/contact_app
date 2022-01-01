@@ -4,7 +4,7 @@ $(function () {
   // 表示切り替え
   let confProf = $('#confProf');
   let confUser = $('#confUser');
-  var selected = confProf;
+  var selected = confUser;
 
   let menuProf = $('#menuProf');
   let menuUser = $('#menuUser');
@@ -54,9 +54,10 @@ $(function () {
   let $checkAll = $('#checkAll');
   let $userChecks = $('.user .check input');
 
-  let $userRows = $('.user');
+  let $selectRow = $('.select-row');
 
   $checkAll.on('change', function () {
+    let $userRows = $selectRow.parent();
     if ($checkAll.prop('checked')) {
       $userChecks.prop('checked', true);
       $userRows.css(selectedStyle);
@@ -67,16 +68,29 @@ $(function () {
   });
 
   // チェックボックス 単体選択
-  $userRows.on('click', function () {
-    let $check = $(this).children('.check').children('input');
+  $selectRow.on('click', function () {
+    let $userRow = $(this).parent();
+    let $check = $userRow.find('.check').children('input');
     let isChecked = $check.prop('checked');
 
     if (isChecked) {
       $check.prop('checked', false);
-      $(this).css(unSelectedStyle);
+      $userRow.css(unSelectedStyle);
     } else {
       $check.prop('checked', true);
-      $(this).css(selectedStyle);
+      $userRow.css(selectedStyle);
+    }
+  });
+
+  $userChecks.on('change', function () {
+    let $check = $(this);
+    let isChecked = $check.prop('checked');
+    let $userRow = $check.parent().parent();
+
+    if (isChecked) {
+      $userRow.css(selectedStyle);
+    } else {
+      $userRow.css(unSelectedStyle);
     }
   });
 
@@ -96,6 +110,25 @@ $(function () {
   $(document).on('click', function(e) {
     if(!$(e.target).closest('#deletePopUp').length && !$(e.target).closest('#deleteBtn').length){
       $deleteModal.fadeOut();
+    }
+  });
+
+  // 権限編集モーダル
+  let $editOpen = $('.edit-open');
+  let $editAuthModal = $('#editAuthModal');
+  let $closeEditAuth = $('.close-edit-auth');
+
+  $editOpen.on('click', function () {
+    $editAuthModal.show();
+  });
+
+  $closeEditAuth.on('click', function () {
+    $editAuthModal.fadeOut();
+  });
+
+  $(document).on('click', function(e) {
+    if(!$(e.target).closest('#edit_auth_pop_up').length && !$(e.target).closest('.edit-open').length){
+      $editAuthModal.fadeOut();
     }
   });
 });

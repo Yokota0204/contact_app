@@ -69,11 +69,32 @@
 }
 .user-config .users-wrapper .users .row {
   border-bottom: 1px solid #ddd;
-  padding: 15px 0;
+}
+.user-config .users-wrapper .users .row .column {
+  padding: 15px 15px;
+}
+.user-config .users-wrapper .users .row .col-check, .user-config .users-wrapper .users .row .col-edit {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 .user-config .users-wrapper .users .header-row .check input {
   font-size: 25px;
 }
+.user-config .users-wrapper .users .user .edit-open {
+  cursor: pointer;
+  color: #6CAAF9;
+}
 .user-config .users-wrapper .users .body-row:hover {
   box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+#editAuthModal .modal-dialog .modal-content .modal-body .row {
+  margin-bottom: 15px;
+}
+#editAuthModal .modal-dialog .modal-content .modal-body .row .col .input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 5px 10px;
 }

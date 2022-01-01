@@ -66,7 +66,12 @@
     .users {
       .row {
         border-bottom: 1px solid #ddd;
-        padding: 15px 0;
+        .column {
+          padding: 15px 15px;
+        }
+        .col-check, .col-edit {
+          width: max-content;
+        }
       }
       .header-row {
         .check {
@@ -75,8 +80,34 @@
           }
         }
       }
+      .user {
+        .edit-open {
+          cursor: pointer;
+          color: #6CAAF9;
+        }
+      }
       .body-row:hover {
         box-shadow: 10px 0 10px 0 rgba(0,0,0,.15);
+      }
+    }
+  }
+}
+
+#editAuthModal {
+  .modal-dialog {
+    .modal-content {
+      .modal-body {
+        .row {
+          margin-bottom: 15px;
+          .col {
+            .input {
+              width: 100%;
+              border: 1px solid #ddd;
+              border-radius: 30px;
+              padding: 5px 10px;
+            }
+          }
+        }
       }
     }
   }
