@@ -9,7 +9,9 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Validator;
 
 class RegisteredUserController extends Controller
 {
@@ -33,12 +35,7 @@ class RegisteredUserController extends Controller
    */
   public function store(Request $request)
   {
-    $request->validate([
-      'name' => ['required', 'string', 'max:255'],
-      'tel_no' => ['digits_between:12,13'],
-      'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
-      'password' => ['required', 'confirmed', Rules\Password::defaults()],
-    ]);
+    $this->validate_admin($request);
 
     $admin = new Admin();
     $admin->name = $request->name;
@@ -52,6 +49,22 @@ class RegisteredUserController extends Controller
 
     Auth::guard('admin')->login($admin);
 
+    Log::debug('Registered and logged in.');
+
     return redirect(RouteServiceProvider::ADMIN_HOME);
+  }
+
+  public function validate_admin (Request $request) {
+    $rule = [
+      'name' => ['required', 'string', 'max:255'],
+      'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
+      'password' => ['required', 'confirmed', Rules\Password::defaults()],
+    ];
+
+    $validator = Validator::make($request->all(), $rule);
+
+    $validator->sometimes('tel_no', 'digit_between:12,13', function ($input) {
+      return empty($input->tel_no);
+    });
   }
 }

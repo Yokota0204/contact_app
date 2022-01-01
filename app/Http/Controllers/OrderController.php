@@ -86,7 +86,7 @@ class OrderController extends Controller
 	public function validate_order(Request $request) {
 		$validate_rule = [
 			'client' => 'required',
-			'email' => ['bail', 'required', 'string', 'email', 'unique:users, email'],
+			'email' => ['bail', 'required', 'string', 'email', 'unique:users,email'],
 			'question' => 'required'
 		];
 
