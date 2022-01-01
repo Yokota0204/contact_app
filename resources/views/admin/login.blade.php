@@ -11,17 +11,7 @@
 @endsection
 
 @section('content')
-  <script src="{{ asset('/js/orders/create.js') }}" type="text/javascript"></script>
-  @if ($errors->any())
-    <div id="alert" class="message-box alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-      <span id="closeErr">×</span>
-    </div>
-  @endif
+  <x-message-box></x-message-box>
   <form class="form" action="/admin/login" method="POST">
     @csrf
     <h3 class="text-center mb-5">ログインフォーム</h3>
