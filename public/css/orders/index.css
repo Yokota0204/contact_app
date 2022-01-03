@@ -19,14 +19,16 @@
   border: 1px solid #eee;
 }
 .search-board .search-form .form-item select {
-  width: 130px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   padding: 5px 15px;
 }
 .search-board .search-form .date .input {
-  width: 155px;
+  width: 165px;
 }
 .search-board .search-form .client .input {
   width: 200px;

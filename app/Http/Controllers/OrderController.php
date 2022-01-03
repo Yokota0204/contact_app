@@ -5,15 +5,76 @@ namespace App\Http\Controllers;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 use App\Models\Order;
 use App\Models\User;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
 	public function index() {
-		return view('orders.index');
+		$orders = (new Order)::take(20)->get();
+		$orders = $this->processOrders($orders);
+
+		$status_arr = status_array();
+
+		$params = ['orders' => $orders, 'status_arr' => $status_arr];
+		return view('orders.index', $params);
+	}
+
+	public function search(Request $request) {
+		$orders = new Order;
+
+		$search_start_date = $request->input('start_date');
+		$search_end_date = $request->input('end_date');
+		$search_status = $request->input('status');
+		$search_company = $request->input('company');
+		$search_client = $request->input('client');
+		$search_email = $request->input('email');
+
+		if (($request->has('start_date') && !empty($request->input('start_date'))) && ($request->has('end_date') && !empty($request->input('end_date')))) {
+			$orders = $orders->dateAfter($search_start_date." 00:00:00")->dateBefore($search_end_date." 23:59:59");
+		} elseif (!($request->has('start_date') && !empty($request->input('start_date'))) && ($request->has('end_date') && !empty($request->input('end_date')))) {
+			$orders = $orders->dateBefore($search_end_date." 23:59:59");
+		} elseif (($request->has('start_date') && !empty($request->input('start_date'))) && !($request->has('end_date') && !empty($request->input('end_date')))) {
+			$today = date("Y-m-d")." 23:59:59";
+			$orders = $orders->dateBefore($today)->dateAfter($search_start_date." 00:00:00");
+		}
+
+		if ($request->has('status') && !empty($request->input('status'))) {
+			$orders = $orders->where('status', $search_status);
+		}
+
+		if ($request->has('company') && !empty($request->input('company'))) {
+			$orders = $orders->where('company', 'LIKE', "%$search_company%");
+		}
+
+		if ($request->has('client') && !empty($request->input('client'))) {
+			$orders = $orders->where('client', 'LIKE', "%$search_client%");
+		}
+
+		if ($request->has('email') && !empty($request->input('email'))) {
+			$orders = $orders->where('email', 'LIKE', "%$search_email%");
+		}
+
+		$status_arr = status_array();
+
+		$inputs = [
+			'start_date' => $search_start_date,
+			'end_date' => $search_end_date,
+			'status' => $search_status,
+			'company' => $search_company,
+			'client' => $search_client,
+			'email' => $search_email,
+		];
+
+		$orders = $orders->get();
+		$orders = $this->processOrders($orders);
+		$params = ['orders' => $orders, 'inputs' => $inputs, 'status_arr' => $status_arr];
+
+		return view('orders.index', $params);
 	}
 
 	// public function show($id) {
@@ -100,4 +161,27 @@ class OrderController extends Controller
 
 		$request->validate($validate_rule, $validate_message);
 	}
+
+	function processOrders($orders) {
+		foreach ($orders as $order) {
+			$order->created_at_string = datetimeDisplay($order->created_at);
+		}
+		return $orders;
+	}
+}
+
+function status_array() {
+	return [
+		'1' => ['value' => '1', 'label' => '未開封'],
+		'2' => ['value' => '2', 'label' => '未対応'],
+		'3' => ['value' => '3', 'label' => '対応中（未返信）'],
+		'4' => ['value' => '4', 'label' => '保留中（返信済み）'],
+		'5' => ['value' => '5', 'label' => '対応中（返信済み）'],
+		'99' => ['value' => '99', 'label' => '対応済み'],
+	];
+}
+
+function datetimeDisplay(string $datetime) {
+	$carbon = new Carbon($datetime);
+	return $carbon->format('Y/m/d H:i');
 }
