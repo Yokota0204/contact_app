@@ -38,11 +38,15 @@
 }
 
 .pagination-nav {
-  width: 87%;
+  width: 93%;
   margin: 0 auto;
+}
+.pagination-nav .pagination {
+  margin: 1rem 0;
 }
 .pagination-nav .pagination .page-link {
   border-radius: 30px;
+  padding: 10px 20px;
 }
 .pagination-nav .pagination .next {
   margin-left: auto;

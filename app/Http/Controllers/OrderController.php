@@ -15,12 +15,17 @@ use Illuminate\Support\Facades\Log;
 class OrderController extends Controller
 {
 	public function index() {
-		$orders = (new Order)::take(20)->get();
+		$orders = (new Order)->simplePaginate(20);
 		$orders = $this->processOrders($orders);
 
 		$status_arr = status_array();
+		$inputs_params = "";
 
-		$params = ['orders' => $orders, 'status_arr' => $status_arr];
+		$params = [
+			'orders' => $orders,
+			'status_arr' => $status_arr,
+			'inputs_params' => $inputs_params,
+		];
 		return view('orders.index', $params);
 	}
 
@@ -70,9 +75,16 @@ class OrderController extends Controller
 			'email' => $search_email,
 		];
 
-		$orders = $orders->get();
+		$inputs_params = "&".http_build_query($inputs);
+
+		$orders = $orders->simplePaginate(20);
 		$orders = $this->processOrders($orders);
-		$params = ['orders' => $orders, 'inputs' => $inputs, 'status_arr' => $status_arr];
+		$params = [
+			'orders' => $orders,
+			'inputs' => $inputs,
+			'status_arr' => $status_arr,
+			'inputs_params' => $inputs_params,
+		];
 
 		return view('orders.index', $params);
 	}
