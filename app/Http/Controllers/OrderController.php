@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Log;
 class OrderController extends Controller
 {
 	public function index() {
-		$orders = (new Order)->simplePaginate(20);
+		$orders = (new Order)->orderBy('id', 'desc')->simplePaginate(20);
 		$orders = $this->processOrders($orders);
 
 		$status_arr = status_array();
@@ -75,9 +75,9 @@ class OrderController extends Controller
 			'email' => $search_email,
 		];
 
-		$inputs_params = "&".http_build_query($inputs);
+		$inputs_params = http_build_query($inputs);
 
-		$orders = $orders->simplePaginate(20);
+		$orders = $orders->orderBy('id', 'desc')->simplePaginate(20);
 		$orders = $this->processOrders($orders);
 		$params = [
 			'orders' => $orders,
@@ -89,13 +89,34 @@ class OrderController extends Controller
 		return view('orders.index', $params);
 	}
 
-	// public function show($id) {
-	// 	$data = $id;
-	// 	return view('orders.show', $data);
-	// }
+	public function show(Request $request, $id) {
+		$order = Order::find($id);
+		$status_arr = status_array();
 
-	public function show() {
-		return view('orders.show');
+		$search_start_date = $request->input('start_date');
+		$search_end_date = $request->input('end_date');
+		$search_status = $request->input('status');
+		$search_company = $request->input('company');
+		$search_client = $request->input('client');
+		$search_email = $request->input('email');
+
+		$inputs = [
+			'start_date' => $search_start_date,
+			'end_date' => $search_end_date,
+			'status' => $search_status,
+			'company' => $search_company,
+			'client' => $search_client,
+			'email' => $search_email,
+		];
+
+		$inputs_params = http_build_query($inputs);
+
+		$data = [
+			'order' => $order,
+			'status_arr' => $status_arr,
+			'inputs_params' => $inputs_params
+		];
+		return view('orders.show', $data);
 	}
 
 	public function create() {
@@ -184,12 +205,12 @@ class OrderController extends Controller
 
 function status_array() {
 	return [
-		'1' => ['value' => '1', 'label' => '未開封'],
-		'2' => ['value' => '2', 'label' => '未対応'],
-		'3' => ['value' => '3', 'label' => '対応中（未返信）'],
-		'4' => ['value' => '4', 'label' => '保留中（返信済み）'],
-		'5' => ['value' => '5', 'label' => '対応中（返信済み）'],
-		'99' => ['value' => '99', 'label' => '対応済み'],
+		'1' => ['val' => '1', 'label' => '未開封'],
+		'2' => ['val' => '2', 'label' => '未対応'],
+		'3' => ['val' => '3', 'label' => '対応中（未返信）'],
+		'4' => ['val' => '4', 'label' => '保留中（返信済み）'],
+		'5' => ['val' => '5', 'label' => '対応中（返信済み）'],
+		'99' => ['val' => '99', 'label' => '対応済み'],
 	];
 }
 

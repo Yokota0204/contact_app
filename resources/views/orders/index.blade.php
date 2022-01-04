@@ -45,9 +45,8 @@
           <option value="">全てのステータス</option>
           @foreach ($status_arr as $status)
             <option
-              value="{{ $status['value'] }}"
-              @if (old('status')==$status['value']
-              || (isset($inputs) && $inputs['status'] == $status['value']))
+              value="{{ $status['val'] }}"
+              @if (old('status')==$status['val'] || (isset($inputs['status']) && $inputs['status'] == $status['val']))
                 selected
               @endif>
               {{ $status['label'] }}
@@ -107,7 +106,7 @@
     <div class="rows-wrapper">
       @isset($orders)
         @for ($i = 0; $i < count($orders); $i++)
-          <a class="row" href="{{ route('admin.orders.show') }}">
+          <a class="row" href="{{ route('admin.orders.show', ['id' => $orders[$i]->id])."?".$inputs_params }}">
             <div class="col-2">{{ $orders[$i]->created_at_string }}</div>
             <div class="col-2">{{ $status_arr[$orders[$i]->status]['label'] }}</div>
             <div class="col">{{ $orders[$i]->company }}</div>

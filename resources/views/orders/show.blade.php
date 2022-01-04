@@ -13,34 +13,30 @@
 @section('content')
   <x-header/>
   <div class="container">
-    <a class="back-link mb-5" href="{{ route('admin.orders.index') }}">&lt;&lt;&nbsp;戻る</a>
+    <a class="back-link mb-5" href="{{ route('admin.orders.search')."?".$inputs_params }}">&lt;&lt;&nbsp;戻る</a>
     <div class="order-wrapper">
       <div class="row">
         <div class="col-2">問い合わせ者</div>
-        <div class="col">株式会社雑談兄弟 山田 様</div>
+        <div class="col">{{ $order->company."  ".$order->client }}&nbsp;&nbsp;様&nbsp;&nbsp;&lt;&nbsp;{{ $order->email }}&nbsp;&gt;</div>
       </div>
       <div class="row">
         <div class="col-2">問い合わせ日時</div>
-        <div class="col">2021/12/31 15:29</div>
+        <div class="col">{{ $order->created_at }}</div>
       </div>
       <div class="row status">
         <div class="col-2">ステータス</div>
         <div class="col">
           <select class="select" name="status">
-            <option value="2">未対応</option>
-            <option value="3">対応中</option>
-            <option value="4">保留</option>
-            <option value="5">対応済み</option>
+            @for ($i = 1; $i < count($status_arr); $i++)
+              <option value="{{ $status_arr[$i]['val'] }}" @if ($order->status == $status_arr[$i]['val']) selected @endif>
+                {{ $status_arr[$i]['label'] }}
+              </option>
+            @endfor
           </select>
         </div>
       </div>
       <div class="order-body">
-        お世話になります。株式会社雑談兄弟　システム管理部の山田と申します。<br><br>
-        現在、弊社では会社の方針としてペーパーレス化促進に取り組んでおります。<br>
-        社内にシステムを導入するに当たり、外部委託にて御社のお力を借りられればと思い、ご連絡いたしました。<br>
-        環境などについても、いろいろとご相談したく存じます。<br>
-        ご連絡お待ちしております。<br><br>
-        株式会社雑談兄弟　山田
+        {{ $order->question }}
       </div>
     </div>
     <div class="replies-wrapper">
