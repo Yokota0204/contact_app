@@ -119,6 +119,25 @@ class OrderController extends Controller
 		return view('orders.show', $data);
 	}
 
+	public function update(Request $request, $id) {
+		DB::beginTransaction();
+
+		try {
+			$status = $request->input('status');
+
+			$order = Order::find($id);
+			$order->status = $status;
+			$order->save();
+		} catch (Exception $e) {
+			DB::rollBack();
+			Log::info($e);
+		}
+
+		DB::commit();
+
+		return redirect('/admin/orders/'.$id)->with(['success' => 'ステータスを更新しました。']);
+	}
+
 	public function create() {
 		return view('orders.create');
 	}

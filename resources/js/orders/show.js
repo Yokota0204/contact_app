@@ -16,4 +16,12 @@ $(function() {
     $('#file' + count).hide();
     count--;
   });
+
+  // ステータス更新
+  let $form = $('#form');
+  let $statusSelect = $('#statusSelect');
+
+  $statusSelect.on('change', function () {
+    $form.submit();
+  });
 })

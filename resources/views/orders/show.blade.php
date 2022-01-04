@@ -6,12 +6,17 @@
 
 @section('stylesheet')
   <link rel="stylesheet" href="{{ asset('css/form.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/message_box.css') }}">
   <link rel="stylesheet" href="{{ asset('css/orders/show.css') }}">
+@endsection
+
+@section('script')
   <script type="text/javascript" src="{{ asset('js/orders/show.js') }}"></script>
 @endsection
 
 @section('content')
   <x-header/>
+  <x-message-box></x-message-box>
   <div class="container">
     <a class="back-link mb-5" href="{{ route('admin.orders.search')."?".$inputs_params }}">&lt;&lt;&nbsp;戻る</a>
     <div class="order-wrapper">
@@ -23,10 +28,11 @@
         <div class="col-2">問い合わせ日時</div>
         <div class="col">{{ $order->created_at }}</div>
       </div>
-      <div class="row status">
+      <form id="form" class="row status" action="{{ route('admin.orders.update', ['id' => $order->id]) }}" method="POST">
+        @csrf
         <div class="col-2">ステータス</div>
         <div class="col">
-          <select class="select" name="status">
+          <select id="statusSelect" class="select" name="status">
             @for ($i = 1; $i < count($status_arr); $i++)
               <option value="{{ $status_arr[$i]['val'] }}" @if ($order->status == $status_arr[$i]['val']) selected @endif>
                 {{ $status_arr[$i]['label'] }}
@@ -34,7 +40,7 @@
             @endfor
           </select>
         </div>
-      </div>
+      </form>
       <div class="order-body">
         {{ $order->question }}
       </div>
