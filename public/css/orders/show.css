@@ -94,6 +94,9 @@
 .container .reply-wrapper .form-group .textarea {
   padding: 15px 20px;
 }
+.container .reply-wrapper .reply-to .form-item {
+  background-color: #eee;
+}
 .container .reply-wrapper .file .plus-file {
   cursor: pointer;
 }

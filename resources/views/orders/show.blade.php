@@ -78,28 +78,32 @@
         </div>
       </div>
     </div>
-    <form class="reply-wrapper form" action="">
+    <form class="reply-wrapper form" action="{{ route('admin.orders.reply', ['order_id' => $order->id]) }}" method="POST" enctype="multipart/form-data">
       @csrf
       <h3 class="mb-5">返信フォーム</h3>
       <div class="form-group">
         <p>件名</p>
-        <input class="form-item input" type="text">
+        <input class="form-item input" name="subject" type="text" value="{{ old('subject') }}" required>
+      </div>
+      <div class="form-group reply-to">
+        <p>Reply To</p>
+        <div class="form-item input">{{ $order->email }}</div>
       </div>
       <div class="form-group">
-        <p>To</p>
-        <input class="form-item input" type="text">
+        <p>To（カンマ区切り）</p>
+        <input class="form-item input" name="to" type="text" value="{{ old('to') }}">
       </div>
       <div class="form-group">
-        <p>Cc</p>
-        <input class="form-item input" type="text">
+        <p>Cc（カンマ区切り）</p>
+        <input class="form-item input" name="cc" type="text" value="{{ old('cc') }}">
       </div>
       <div class="form-group">
-        <p>Bcc</p>
-        <input class="form-item input" type="text">
+        <p>Bcc（カンマ区切り）</p>
+        <input class="form-item input" name="bcc" type="text" value="{{ old('bcc') }}">
       </div>
       <div class="form-group">
         <p>本文</p>
-        <textarea class="form-item textarea" name="" rows="10"></textarea>
+        <textarea class="form-item textarea" name="body" rows="10" required>{{ old('body') }}</textarea>
       </div>
       <div class="form-group file">
         <p>
@@ -109,19 +113,20 @@
             <button id="minusFile" class="btn btn-danger" type="button"><i class="fas fa-minus"></i></button>
           </span>
         </p>
-        <input id="file1" class="form-item input" type="file">
-        <input id="file2" class="form-item input" type="file">
-        <input id="file3" class="form-item input" type="file">
-        <input id="file4" class="form-item input" type="file">
-        <input id="file5" class="form-item input" type="file">
-        <input id="file6" class="form-item input" type="file">
-        <input id="file7" class="form-item input" type="file">
-        <input id="file8" class="form-item input" type="file">
-        <input id="file9" class="form-item input" type="file">
-        <input id="file10" class="form-item input" type="file">
+        <input id="file1" class="form-item input" name="file1" type="file">
+        <input id="file2" class="form-item input" name="file2" type="file">
+        <input id="file3" class="form-item input" name="file3" type="file">
+        <input id="file4" class="form-item input" name="file4" type="file">
+        <input id="file5" class="form-item input" name="file5" type="file">
+        <input id="file6" class="form-item input" name="file6" type="file">
+        <input id="file7" class="form-item input" name="file7" type="file">
+        <input id="file8" class="form-item input" name="file8" type="file">
+        <input id="file9" class="form-item input" name="file9" type="file">
+        <input id="file10" class="form-item input" name="file10" type="file">
+        <input id="fileCount" name="file_count" type="hidden" value="1">
       </div>
       <div class="btn-wrapper">
-        <button class="btn btn-lg btn-primary" type="submit">確認画面</button>
+        <button class="btn btn-lg btn-primary" type="submit">送信</button>
       </div>
     </form>
   </div>

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EmailController;
 
 
 Route::get('/', [OrderController::class, 'index'])
@@ -32,6 +33,10 @@ Route::get('/orders/{id}', [OrderController::class, 'show'])
 Route::post('/orders/{id}', [OrderController::class, 'update'])
   ->middleware('auth:admin')
   ->name('orders.update');
+
+Route::post('/orders/{order_id}/reply', [EmailController::class, 'reply'])
+->middleware('auth:admin')
+->name('orders.reply');
 
 Route::get('/show', [AdminController::class, 'show'])
   ->middleware('auth:admin')
