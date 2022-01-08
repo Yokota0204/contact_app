@@ -49,6 +49,10 @@ class Admin extends Authenticatable
     $this->uid = $this->generate_uid();
   }
 
+  public function emails() {
+    $this->hasMany('App\Models\Email', 'sender_id', 'uid');
+  }
+
   public function generate_uid() {
     $uid = sha1( uniqid( mt_rand() , true ) );
     if(DB::table("admins")->where("uid", $uid)->exists()) {

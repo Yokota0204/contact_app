@@ -22,6 +22,10 @@ class Order extends Model
 
   public $created_at_string;
 
+  public function emails() {
+    return $this->hasMany('App\Models\Email');
+  }
+
   public function scopeDateAfter($query, $start) {
     return $query->where('created_at', '>=', $start);
   }

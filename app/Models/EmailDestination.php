@@ -12,8 +12,8 @@ class EmailDestination extends Model
   protected $fillable = [
     'email_id',
     'admin_id',
-    'destination_type',
-    'destination_address',
+    'type',
+    'address',
   ];
 
   public function email() {

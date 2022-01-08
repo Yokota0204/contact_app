@@ -26,11 +26,19 @@ class Email extends Model
     'body.required' => '本文を入力してください。',
   ];
 
-  public function email_destinations() {
+  public function order() {
+    return $this->belongsTo('App\Models\Order');
+  }
+
+  public function admin() {
+    return $this->belongsTo('App\Models\Admin', 'sender_id', 'uid');
+  }
+
+  public function destinations() {
     return $this->hasMany('App\Models\EmailDestination');
   }
 
-  public function email_files() {
+  public function files() {
     return $this->hasMany('App\Models\EmailFile');
   }
 }

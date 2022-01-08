@@ -45,6 +45,7 @@
   border: 1px solid #ddd;
   border-radius: 30px;
   padding: 30px 50px;
+  margin-bottom: 30px;
 }
 .container .replies-wrapper .reply .header {
   display: flex;
@@ -71,10 +72,15 @@
   border-bottom: 1px solid #ddd;
 }
 .container .replies-wrapper .reply .body {
-  margin-top: 15px;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
   border-bottom: 1px solid #ddd;
+  padding: 50px 0;
+  margin-bottom: 15px;
+}
+.container .replies-wrapper .reply .files .file {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: block;
 }
 .container .reply-wrapper {
   width: 100%;

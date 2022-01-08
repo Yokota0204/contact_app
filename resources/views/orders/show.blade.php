@@ -46,37 +46,41 @@
       </div>
     </div>
     <div class="replies-wrapper">
-      <div class="reply">
-        <div class="header border-bottom mb-3 pb-2">
-          <h5>タイトル</h5>
-          <div class="datetime">2022/01/04 12:35</div>
+      @foreach ($emails as $email)
+        <div class="reply">
+          <div class="header border-bottom mb-3 pb-2">
+            <h5>{{ $email->subject }}</h5>
+            <div class="datetime">{{ $email->created_at }}</div>
+          </div>
+          <div class="row">
+            <div class="replier">{{ $email->admin()->first()->name }}（ID:&nbsp;{{ $email->sender_id }}）</div>
+          </div>
+          @foreach ($email->destinations()->get() as $destination)
+            @if ($destination->type == "1")
+              <div class="row to">
+                <div class="col-2">To:&nbsp;</div>
+                <div class="col">{{ $destination->address }}</div>
+              </div>
+            @elseif ($destination->type == "2")
+              <div class="row cc">
+                <div class="col-2">Cc:&nbsp;</div>
+                <div class="col">{{ $destination->address }}</div>
+              </div>
+            @else
+              <div class="row bcc">
+                <div class="col-2">Bcc:&nbsp;</div>
+                <div class="col">{{ $destination->address }}</div>
+              </div>
+            @endif
+          @endforeach
+          <div class="body">{{ $email->body }}</div>
+          <div class="files">
+            @foreach ($email->files()->get() as $file)
+              <a class="file" href="/storage/reply/{{ $order->id }}/{{ $email->id }}/{{ $file->name }}">{{ $file->name }}</a>
+            @endforeach
+          </div>
         </div>
-        <div class="row">
-          <div class="replier">横田　陽平（ID:&nbsp;DAKGIKC3453）</div>
-        </div>
-        <div class="row to">
-          <div class="col-2">To:&nbsp;</div>
-          <div class="col">ChatBrothers402@gmail.com</div>
-        </div>
-        <div class="row bcc">
-          <div class="col-2">Bcc:&nbsp;</div>
-          <div class="col">yokota.technology@gmail.com</div>
-        </div>
-        <div class="body">
-          株式会社雑談兄弟　山田　様<br><br>
-          お世話になります。福岡システム開発の横田と申します。<br>
-          この度はお問い合わせいただきありがとうございます。<br><br>
-          お問い合わせいただいた内容について、弊社で提案できる内容であるため、詳しくお話させていただきたく存じます。<br>
-          ぜひ一度、オンラインで直接会話できればと思います。<br>
-          ご都合のつく日時の候補を３つほど下記のメールアドレスへ送っていただくことは可能でしょうか？<br>
-          メール：yokota.technology@gmail.com<br><br>
-          よろしくお願いいたします。<br>
-          福岡システム開発　横田
-        </div>
-        <div class="">
-          <a>sample.txt</a>
-        </div>
-      </div>
+      @endforeach
     </div>
     <form class="reply-wrapper form" action="{{ route('admin.orders.reply', ['order_id' => $order->id]) }}" method="POST" enctype="multipart/form-data">
       @csrf

@@ -91,6 +91,8 @@ class OrderController extends Controller
 
 	public function show(Request $request, $id) {
 		$order = Order::find($id);
+		$emails = $order->emails()->get();
+
 		$status_arr = status_array();
 
 		$search_start_date = $request->input('start_date');
@@ -114,7 +116,8 @@ class OrderController extends Controller
 		$data = [
 			'order' => $order,
 			'status_arr' => $status_arr,
-			'inputs_params' => $inputs_params
+			'inputs_params' => $inputs_params,
+			'emails' => $emails,
 		];
 		return view('orders.show', $data);
 	}
