@@ -33,11 +33,11 @@
         <div class="col-2">ステータス</div>
         <div class="col">
           <select id="statusSelect" class="select" name="status">
-            @for ($i = 1; $i < count($status_arr); $i++)
-              <option value="{{ $status_arr[$i]['val'] }}" @if ($order->status == $status_arr[$i]['val']) selected @endif>
-                {{ $status_arr[$i]['label'] }}
+            @foreach ($status_arr as $status)
+              <option value="{{ $status['val'] }}" @if ($order->status == $status['val']) selected @endif>
+                {{ $status['label'] }}
               </option>
-            @endfor
+            @endforeach
           </select>
         </div>
       </form>

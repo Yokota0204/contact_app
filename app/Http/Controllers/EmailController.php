@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Email;
 use App\Models\EmailDestination;
 use App\Models\EmailFile;
-use Illuminate\Support\Facades\Validator;
+use App\Models\Order;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -99,6 +99,10 @@ class EmailController extends Controller
       }
 
       if (count($file_values) > 0) EmailFile::insert($file_values);
+
+      $order = Order::find($order_id);
+      $order->status = "99";
+      $order->save();
     } catch (Exception $e) {
       Log::debug($e);
       DB::rollBack();
