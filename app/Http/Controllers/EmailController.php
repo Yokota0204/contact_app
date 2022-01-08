@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ReplyToOrder;
 use App\Models\Email;
 use App\Models\EmailDestination;
 use App\Models\EmailFile;
@@ -11,6 +12,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+
+use function Psy\debug;
 
 class EmailController extends Controller
 {
@@ -43,18 +47,28 @@ class EmailController extends Controller
       $email->body = $body;
       $email->save();
 
+      $order = Order::find($order_id);
+      $reply_to = $order->email;
+
       $destination_values = array();
       $reg_email = "/^([a-zA-Z0-9])+([a-zA-Z0-9._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9._-]+)+$/";
+
+      $validated_tos = array(
+        $reply_to,
+      );
+      $validated_ccs = array();
+      $validated_bccs = array();
 
       foreach ($tos as $to) {
         if (preg_match($reg_email, $to)) {
           $destination = array(
             'email_id' => $email->id,
             'admin_id' => $admin_uid,
-            'destination_type' => 1,
-            'destination_address' => $to,
+            'type' => 1,
+            'address' => $to,
           );
           $destination_values[] = $destination;
+          $validated_tos[] = $to;
         }
       }
 
@@ -63,10 +77,11 @@ class EmailController extends Controller
           $destination = array(
             'email_id' => $email->id,
             'admin_id' => $admin_uid,
-            'destination_type' => 2,
-            'destination_address' => $cc,
+            'type' => 2,
+            'address' => $cc,
           );
           $destination_values[] = $destination;
+          $validated_ccs[] = $cc;
         }
       }
 
@@ -75,41 +90,51 @@ class EmailController extends Controller
           $destination = array(
             'email_id' => $email->id,
             'admin_id' => $admin_uid,
-            'destination_type' => 3,
-            'destination_address' => $bcc,
+            'type' => 3,
+            'address' => $bcc,
           );
           $destination_values[] = $destination;
+          $validated_bccs[] = $bcc;
         }
       }
 
       if (count($destination_values) > 0) EmailDestination::insert($destination_values);
 
       $file_values = array();
+      $attach_file_paths = array();
 
       for ($i = 1; $i <= $file_count; $i++) {
         $file = $files["file".$i];
         $file_name = $file->getClientOriginalName();
-        $file->storeAS("public/reply/$order_id/$email->id", $file_name);
+        $stored_file_path = $file->storeAS("public/reply/$order_id/$email->id", $file_name);
+        Log::info('Stored file: '.$stored_file_path);
+        $attach_file_paths[] = $stored_file_path;
         $file_value = array(
           'email_id' => $email->id,
           'admin_id' => $admin_uid,
-          'file_name' => $file_name,
+          'name' => $file_name,
         );
         $file_values[] = $file_value;
       }
 
       if (count($file_values) > 0) EmailFile::insert($file_values);
+      Log::debug('メールを保存完了');
+      Log::info("Email: $email");
 
-      $order = Order::find($order_id);
+      Mail::to($validated_tos)->cc($validated_ccs)->bcc($validated_bccs)
+        ->send(new ReplyToOrder($email, $attach_file_paths));
+      Log::debug('メール送信完了');
+      Log::info('To: '.print_r($validated_tos, true).', Cc: '.print_r($validated_ccs, true).', Bcc: '.print_r($validated_bccs, true));
+
       $order->status = "99";
       $order->save();
+      Log::debug("order_id: $order_id : 問い合わせのステータスを「対応済み」変更");
     } catch (Exception $e) {
       Log::debug($e);
       DB::rollBack();
     }
 
     DB::commit();
-    Log::debug('メールを保存完了');
 
     return redirect()->route("admin.orders.show", ['id' => $order_id])
       ->with(['success' => 'メールを送信しました。']);
