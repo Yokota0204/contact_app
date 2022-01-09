@@ -55,6 +55,10 @@
           <div class="row">
             <div class="replier">{{ $email->admin()->first()->name }}（ID:&nbsp;{{ $email->sender_id }}）</div>
           </div>
+          <div class="row to">
+            <div class="col-2">Reply To:&nbsp;</div>
+            <div class="col">{{ $order->email }}</div>
+          </div>
           @foreach ($email->destinations()->get() as $destination)
             @if ($destination->type == "1")
               <div class="row to">
