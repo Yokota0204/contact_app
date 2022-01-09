@@ -38,7 +38,7 @@ Route::post('/orders/{order_id}/reply', [EmailController::class, 'reply'])
 ->middleware('auth:admin')
 ->name('orders.reply');
 
-Route::get('/show', [AdminController::class, 'show'])
+Route::get('/{uid}', [AdminController::class, 'show'])
   ->middleware('auth:admin')
   ->name('show');
 

@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admin;
 
 class AdminController extends Controller
 {
-  public function show() {
-    return view('admin.show');
+  public function show($uid) {
+    $admin = Admin::where('uid', $uid)->first();
+    // $orders = $admin->orders();
+    // return view('admin.show', ['admin' => $admin, 'orders' => $orders]);
+    return view('admin.show', ['admin' => $admin]);
   }
 
   public function config() {

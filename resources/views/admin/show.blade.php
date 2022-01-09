@@ -17,13 +17,21 @@
       </label>
       <div class="profile-text">
         <h4>
-          <i class="fas fa-user-graduate"></i>&nbsp;
-          横田　陽平&nbsp;
+          @if ($admin->role == "1")
+            <i class="fas fa-user-graduate"></i>&nbsp;
+          @elseif ($admin->role == "2")
+            <i class="fas fa-user-tie"></i>&nbsp;
+          @else
+            <i class="fas fa-user"></i>
+          @endif
+          {{ $admin->name }}&nbsp;
           <a class="btn btn-outline-secondary" href="{{ route('admin.config') }}">設定</a>
         </h4>
-        <p class="mb-5">GNDKNG325KD</p>
-        <h5>test@gmail.com</h5>
-        <h5>090-xxxx-xxxx</h5>
+        <p class="mb-5">ID:&nbsp;{{ $admin->uid }}</p>
+        <h5><i class="far fa-envelope"></i>&nbsp;{{ $admin->email }}</h5>
+        @isset ($admin->tel_no)
+          <h5><i class="fas fa-phone"></i>&nbsp;{{ $admin->tel_no }}</h5>
+        @endisset
       </div>
     </div>
     <div class="orders-wrapper">
@@ -36,14 +44,7 @@
         <div class="col">メールアドレス</div>
       </div>
       <div class="rows-wrapper">
-        <a class="row" href="{{ route('admin.orders.show') }}">
-          <div class="col-2">2021/05/31 22:33</div>
-          <div class="col-2">対応中</div>
-          <div class="col">株式会社雑談兄弟</div>
-          <div class="col">横田 陽平</div>
-          <div class="col">yokota.02210301@gmail.com</div>
-        </a>
-        <a class="row" href="{{ route('admin.orders.show') }}">
+        <a class="row" href="">
           <div class="col-2">2021/05/31 22:33</div>
           <div class="col-2">対応中</div>
           <div class="col">株式会社雑談兄弟</div>
