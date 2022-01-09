@@ -91,7 +91,7 @@ class OrderController extends Controller
 
 	public function show(Request $request, $id) {
 		$order = Order::find($id);
-		$emails = $order->emails()->get();
+		$emails = $order->emails()->orderBy('id', 'desc')->get();
 
 		$status_arr = status_array();
 
@@ -120,25 +120,6 @@ class OrderController extends Controller
 			'emails' => $emails,
 		];
 		return view('orders.show', $data);
-	}
-
-	public function update(Request $request, $id) {
-		DB::beginTransaction();
-
-		try {
-			$status = $request->input('status');
-
-			$order = Order::find($id);
-			$order->status = $status;
-			$order->save();
-		} catch (Exception $e) {
-			DB::rollBack();
-			Log::info($e);
-		}
-
-		DB::commit();
-
-		return redirect('/admin/orders/'.$id)->with(['success' => 'ステータスを更新しました。']);
 	}
 
 	public function create() {
@@ -197,6 +178,25 @@ class OrderController extends Controller
 		}
 
 		return redirect()->route('orders.create')->with('success', 'お問い合わせを送信しました。');
+	}
+
+	public function update(Request $request, $id) {
+		DB::beginTransaction();
+
+		try {
+			$status = $request->input('status');
+
+			$order = Order::find($id);
+			$order->status = $status;
+			$order->save();
+		} catch (Exception $e) {
+			DB::rollBack();
+			Log::info($e);
+		}
+
+		DB::commit();
+
+		return redirect('/admin/orders/'.$id)->with(['success' => 'ステータスを更新しました。']);
 	}
 
 	public function validate_order(Request $request) {
