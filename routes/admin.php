@@ -26,35 +26,31 @@ Route::get('/orders/search', [OrderController::class, 'search'])
 ->middleware(['auth:admin'])
 ->name('orders.search');
 
-Route::get('/orders/{id}', [OrderController::class, 'show'])
-  ->middleware('auth:admin')
-  ->name('orders.show');
-
-Route::post('/orders/{id}', [OrderController::class, 'update'])
-  ->middleware('auth:admin')
-  ->name('orders.update');
-
 Route::post('/orders/{order_id}/reply', [EmailController::class, 'reply'])
 ->middleware('auth:admin')
 ->name('orders.reply');
 
-Route::get('/{uid}', [AdminController::class, 'show'])
-  ->middleware('auth:admin')
-  ->name('show');
+Route::post('/orders/{id}', [OrderController::class, 'update'])
+->middleware('auth:admin')
+->name('orders.update');
+
+Route::get('/orders/{id}', [OrderController::class, 'show'])
+->middleware('auth:admin')
+->name('orders.show');
 
 Route::get('/config', [AdminController::class, 'config'])
-  ->middleware('auth:admin')
-  ->name('config');
+->middleware('auth:admin')
+->name('config');
 
 Route::post('/update/auth', [AdminController::class, 'update_auth'])
-  ->middleware('auth:admin')
-  ->name('update.auth');
+->middleware('auth:admin')
+->name('update.auth');
 
 Route::post('/destroy', [AdminController::class, 'destroy'])
-  ->middleware('auth:admin');
+->middleware('auth:admin');
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
-  ->name('register');
+->name('register');
 
 // Route::get('/register', [RegisteredUserController::class, 'create'])
 //   ->middleware('auth:admin')
@@ -66,47 +62,51 @@ Route::post('/register', [RegisteredUserController::class, 'store']);
 //   ->middleware('auth:admin');
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
-  ->middleware('guest:admin')
-  ->name('login');
+->middleware('guest:admin')
+->name('login');
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-  ->middleware('guest:admin');
+->middleware('guest:admin');
 
 Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
-  ->middleware('guest:admin')
-  ->name('password.request');
+->middleware('guest:admin')
+->name('password.request');
 
 Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
-  ->middleware('guest:admin')
-  ->name('password.email');
+->middleware('guest:admin')
+->name('password.email');
 
 Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
-  ->middleware('guest:admin')
-  ->name('password.reset');
+->middleware('guest:admin')
+->name('password.reset');
 
 Route::post('/reset-password', [NewPasswordController::class, 'store'])
-  ->middleware('guest:admin')
-  ->name('password.update');
+->middleware('guest:admin')
+->name('password.update');
 
 Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])
-  ->middleware('auth:admin')
-  ->name('verification.notice');
+->middleware('auth:admin')
+->name('verification.notice');
 
 Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-  ->middleware(['auth:admin', 'signed', 'throttle:6,1'])
-  ->name('verification.verify');
+->middleware(['auth:admin', 'signed', 'throttle:6,1'])
+->name('verification.verify');
 
 Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-  ->middleware(['auth:admin', 'throttle:6,1'])
-  ->name('verification.send');
+->middleware(['auth:admin', 'throttle:6,1'])
+->name('verification.send');
 
 Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
-  ->middleware('auth:admin')
-  ->name('password.confirm');
+->middleware('auth:admin')
+->name('password.confirm');
 
 Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
-  ->middleware('auth:admin');
+->middleware('auth:admin');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-  ->middleware('auth:admin')
-  ->name('logout');
+->middleware('auth:admin')
+->name('logout');
+
+Route::get('/{uid}', [AdminController::class, 'show'])
+->middleware('auth:admin')
+->name('show');
