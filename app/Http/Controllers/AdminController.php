@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\Order;
 
 class AdminController extends Controller
 {
   public function show($uid) {
     $admin = Admin::where('uid', $uid)->first();
-    // $orders = $admin->orders();
-    // return view('admin.show', ['admin' => $admin, 'orders' => $orders]);
-    return view('admin.show', ['admin' => $admin]);
+    $orders = Order::where('in_charge', $uid)->get();
+    return view('admin.show', ['admin' => $admin, 'orders' => $orders]);
   }
 
   public function config() {

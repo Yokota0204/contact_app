@@ -5,25 +5,22 @@ namespace App\Http\Controllers;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 
 use App\Models\Order;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
 	public function index() {
 		$orders = (new Order)->orderBy('id', 'desc')->simplePaginate(20);
-		$orders = $this->processOrders($orders);
 
-		$status_arr = status_array();
 		$inputs_params = "";
 
 		$params = [
 			'orders' => $orders,
-			'status_arr' => $status_arr,
 			'inputs_params' => $inputs_params,
 		];
 		return view('orders.index', $params);
@@ -64,7 +61,7 @@ class OrderController extends Controller
 			$orders = $orders->where('email', 'LIKE', "%$search_email%");
 		}
 
-		$status_arr = status_array();
+		$orders = $orders->orderBy('id', 'desc')->simplePaginate(20);
 
 		$inputs = [
 			'start_date' => $search_start_date,
@@ -77,12 +74,9 @@ class OrderController extends Controller
 
 		$inputs_params = http_build_query($inputs);
 
-		$orders = $orders->orderBy('id', 'desc')->simplePaginate(20);
-		$orders = $this->processOrders($orders);
 		$params = [
 			'orders' => $orders,
 			'inputs' => $inputs,
-			'status_arr' => $status_arr,
 			'inputs_params' => $inputs_params,
 		];
 
@@ -92,8 +86,6 @@ class OrderController extends Controller
 	public function show(Request $request, $id) {
 		$order = Order::find($id);
 		$emails = $order->emails()->orderBy('id', 'desc')->get();
-
-		$status_arr = status_array();
 
 		$search_start_date = $request->input('start_date');
 		$search_end_date = $request->input('end_date');
@@ -115,7 +107,6 @@ class OrderController extends Controller
 
 		$data = [
 			'order' => $order,
-			'status_arr' => $status_arr,
 			'inputs_params' => $inputs_params,
 			'emails' => $emails,
 		];
@@ -171,6 +162,10 @@ class OrderController extends Controller
 			$order->question = $request->question;
 			$order->save();
 
+			$carbon = new Carbon($order->created_at);
+			$order->created_at_display = $carbon->format('Y/m/d H:i');
+			$order->save();
+
 			DB::commit();
 		} catch(Exception $e) {
 			DB::rollBack();
@@ -216,27 +211,4 @@ class OrderController extends Controller
 
 		$request->validate($validate_rule, $validate_message);
 	}
-
-	function processOrders($orders) {
-		foreach ($orders as $order) {
-			$order->created_at_string = datetimeDisplay($order->created_at);
-		}
-		return $orders;
-	}
-}
-
-function status_array() {
-	return [
-		'1' => ['val' => '1', 'label' => '未開封'],
-		'2' => ['val' => '2', 'label' => '未対応'],
-		'3' => ['val' => '3', 'label' => '対応中（未返信）'],
-		'4' => ['val' => '4', 'label' => '保留中（返信済み）'],
-		'5' => ['val' => '5', 'label' => '対応中（返信済み）'],
-		'99' => ['val' => '99', 'label' => '対応済み'],
-	];
-}
-
-function datetimeDisplay(string $datetime) {
-	$carbon = new Carbon($datetime);
-	return $carbon->format('Y/m/d H:i');
 }

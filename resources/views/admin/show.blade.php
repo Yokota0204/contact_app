@@ -44,13 +44,17 @@
         <div class="col">メールアドレス</div>
       </div>
       <div class="rows-wrapper">
-        <a class="row" href="">
-          <div class="col-2">2021/05/31 22:33</div>
-          <div class="col-2">対応中</div>
-          <div class="col">株式会社雑談兄弟</div>
-          <div class="col">横田 陽平</div>
-          <div class="col">yokota.02210301@gmail.com</div>
-        </a>
+        @isset ($orders)
+          @foreach ($orders as $order)
+            <a class="row" href="/admin/orders/{{ $order->id }}">
+              <div class="col-2">{{ $order->created_at_display }}</div>
+              <div class="col-2">{{ $status_arr[$order->status]['label'] }}</div>
+              <div class="col">{{ $order->company }}</div>
+              <div class="col">{{ $order->client }}</div>
+              <div class="col">{{ $order->email }}</div>
+            </a>
+          @endforeach
+        @endisset
       </div>
     </div>
   </div>

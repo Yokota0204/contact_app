@@ -26,7 +26,7 @@
       </div>
       <div class="row">
         <div class="col-2">問い合わせ日時</div>
-        <div class="col">{{ $order->created_at }}</div>
+        <div class="col">{{ $order->created_at_display }}</div>
       </div>
       <form id="form" class="row status" action="{{ route('admin.orders.update', ['id' => $order->id]) }}" method="POST">
         @csrf

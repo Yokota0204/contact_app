@@ -107,7 +107,7 @@
       @isset($orders)
         @for ($i = 0; $i < count($orders); $i++)
           <a class="row" href="{{ route('admin.orders.show', ['id' => $orders[$i]->id])."?".$inputs_params }}">
-            <div class="col-2">{{ $orders[$i]->created_at_string }}</div>
+            <div class="col-2">{{ $orders[$i]->created_at_display }}</div>
             <div class="col-2">{{ $status_arr[$orders[$i]->status]['label'] }}</div>
             <div class="col">{{ $orders[$i]->company }}</div>
             <div class="col">{{ $orders[$i]->client }}&nbsp;様</div>

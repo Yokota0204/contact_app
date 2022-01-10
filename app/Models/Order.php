@@ -18,9 +18,12 @@ class Order extends Model
     'status',
     'created_at',
     'updated_at',
+    'created_at_display',
   ];
 
-  public $created_at_string;
+  public function admin() {
+    return $this->belongsTo('App\Models\Admin', 'in_charge', 'uid');
+  }
 
   public function emails() {
     return $this->hasMany('App\Models\Email');

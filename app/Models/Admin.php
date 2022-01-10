@@ -23,6 +23,7 @@ class Admin extends Authenticatable
     'name',
     'email',
     'tel_no',
+    'role',
   ];
 
   /**
@@ -51,6 +52,10 @@ class Admin extends Authenticatable
 
   public function emails() {
     $this->hasMany('App\Models\Email', 'sender_id', 'uid');
+  }
+
+  public function orders() {
+    $this->hasMany('App\Models\Order', 'in_charge', 'uid');
   }
 
   public function generate_uid() {
