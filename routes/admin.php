@@ -38,10 +38,6 @@ Route::get('/orders/{id}', [OrderController::class, 'show'])
 ->middleware('auth:admin')
 ->name('orders.show');
 
-Route::get('/config', [AdminController::class, 'config'])
-->middleware('auth:admin')
-->name('config');
-
 Route::post('/update/auth', [AdminController::class, 'update_auth'])
 ->middleware('auth:admin')
 ->name('update.auth');
@@ -106,6 +102,17 @@ Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store']
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 ->middleware('auth:admin')
 ->name('logout');
+
+Route::get("/email_reset/{token}", [AdminController::class, 'email_reset'])
+  ->name('email_reset');
+
+Route::get('/{uid}/config', [AdminController::class, 'config'])
+->middleware('auth:admin')
+->name('config');
+
+Route::post('/{uid}/update', [AdminController::class, 'update'])
+->middleware('auth:admin')
+->name('update');
 
 Route::get('/{uid}', [AdminController::class, 'show'])
 ->middleware('auth:admin')

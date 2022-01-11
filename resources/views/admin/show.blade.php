@@ -25,7 +25,7 @@
             <i class="fas fa-user"></i>
           @endif
           {{ $admin->name }}&nbsp;
-          <a class="btn btn-outline-secondary" href="{{ route('admin.config') }}">設定</a>
+          <a class="btn btn-outline-secondary" href="{{ route('admin.config', ['uid' => $admin->uid]) }}">設定</a>
         </h4>
         <p class="mb-5">ID:&nbsp;{{ $admin->uid }}</p>
         <h5><i class="far fa-envelope"></i>&nbsp;{{ $admin->email }}</h5>
