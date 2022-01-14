@@ -41,7 +41,7 @@
           @endif
           {{ $admin->name }}&nbsp;
           @if ($login_user->uid == $admin->uid)
-            <a class="btn btn-outline-secondary" href="{{ route('admin.config', ['uid' => $admin->uid]) }}">設定</a>
+            <a class="btn btn-outline-secondary" href="{{ route('admin.config') }}">設定</a>
           @endif
         </h4>
         <p class="mb-5">ID:&nbsp;{{ $admin->uid }}</p>

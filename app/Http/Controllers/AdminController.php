@@ -23,9 +23,8 @@ class AdminController extends Controller
     return view('admin.show', ['admin' => $admin, 'orders' => $orders]);
   }
 
-  public function config($uid) {
-    $admin = Auth::user();
-    return view('admin.config', ['admin' => $admin]);
+  public function config() {
+    return view('admin.config');
   }
 
   public function update(Request $request, $uid) {
