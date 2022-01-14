@@ -1,6 +1,7 @@
 .navbar .navbar-collapse .navbar-nav .nav-item .nav-link .user-icon {
   display: inline-block;
   width: 30px;
+  border-radius: 50%;
 }
 .navbar .navbar-collapse .navbar-nav .nav-item .btn-logout {
   background-color: transparent;
