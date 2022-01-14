@@ -49,6 +49,7 @@ $(function () {
   });
 
   closeBtn.on('click', function () {
+    $imgInput.val(null);
     $modalCrop.fadeOut();
   });
 
