@@ -10,7 +10,7 @@ class AdminServiceProvider extends ServiceProvider
 {
   public function boot()
   {
-    View::composer(['components.header'], function($view) {
+    View::composer(['components.header', 'admin.show'], function($view) {
       $view->with('login_user', Auth::user());
     });
   }

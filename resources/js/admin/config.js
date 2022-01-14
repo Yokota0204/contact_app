@@ -4,7 +4,7 @@ $(function () {
   // 表示切り替え
   let confProf = $('#confProf');
   let confUser = $('#confUser');
-  var selected = confUser;
+  var selected = confProf;
 
   let menuProf = $('#menuProf');
   let menuUser = $('#menuUser');

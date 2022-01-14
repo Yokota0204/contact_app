@@ -11,7 +11,10 @@
 }
 .container .profile .profile-image {
   text-align: center;
-  width: 50%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-right: 100px;
 }
 .container .profile .profile-image img {
   display: block;
@@ -25,5 +28,7 @@
 }
 .container .profile .profile-text {
   text-align: center;
-  width: 50%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }

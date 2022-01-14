@@ -20,10 +20,12 @@ class Admin extends Authenticatable
    * @var string[]
    */
   protected $fillable = [
+    'uid',
     'name',
     'email',
     'tel_no',
     'role',
+    'avatar',
   ];
 
   /**
@@ -32,7 +34,6 @@ class Admin extends Authenticatable
    * @var array
    */
   protected $hidden = [
-    'uid',
     'password',
     'remember_token',
   ];

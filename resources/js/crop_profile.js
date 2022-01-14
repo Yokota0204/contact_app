@@ -10,9 +10,13 @@ $(function () {
 
   let cropImgEl = document.getElementById('cropImg');
   let userImg = document.getElementById('userImg');
+  let headerIcon = document.getElementById('headerIcon');
 
   let cropper;
   let croppable;
+
+  let $failUpload = $('#failUpload');
+  if($failUpload) $failUpload.hide();
 
   $imgInput.on('change', function(e){
     let reader;
@@ -52,13 +56,50 @@ $(function () {
     let croppedCanvas, roundedCanvas;
 
     if (!croppable) {
-      console.log("false");
       return;
     }
 
     croppedCanvas = cropper.getCroppedCanvas();
     roundedCanvas = getRoundedCanvas(croppedCanvas);
-    userImg.src = roundedCanvas.toDataURL()
+
+    roundedCanvas.toBlob(function(blob) {
+      let reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = function() {
+        var base64data = reader.result;
+        $.ajax({
+          type: 'POST',
+          header:{
+            'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+          },
+          url: '/admin/update_avatar/' + Admin.uid,
+          data: {
+            _token: csrf_token,
+            dataType: 'json',
+            contentType:'application/json',
+            image: base64data,
+          },
+          dataType: 'json', //json形式で受け取る
+          // beforeSend: function () {
+          // } // ajax送信前の処理
+        }).done(function (data) {
+          console.log(data);
+          if (data == 'success') {
+            $failUpload.hide();
+            userImg.src = roundedCanvas.toDataURL();
+            headerIcon.src = roundedCanvas.toDataURL();
+          } else {
+            $failUpload.show();
+            $imgInput.val(null);
+            $failUpload.show();
+          }
+        }).fail(function () {
+          $imgInput.val(null);
+          $failUpload.show();
+          console.log('Something failed in ajax.');
+        });
+      }
+    });
 
     $modalCrop.fadeOut();
   })

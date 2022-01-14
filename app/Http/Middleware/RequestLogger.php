@@ -46,6 +46,8 @@ class RequestLogger
      */
     private function write(Request $request): void
     {
-        Log::debug($request->method(), ['url' => $request->fullUrl(), 'request' => $request->all()]);
+        $params = $request->all();
+        unset($params['image']);
+        Log::debug($request->method(), ['url' => $request->fullUrl(), 'request' => $params]);
     }
 }

@@ -16,7 +16,6 @@
     <div class="contents">
       @yield('content')
     </div>
-    <x-logout-modal/>
     @yield('modal')
   </body>
 </html>

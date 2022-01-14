@@ -1,9 +1,17 @@
 @extends('layouts.dashboard')
 
 @section('stylesheet')
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="{{ asset('lib/cropperjs/dist/cropper.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/orders/table.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin/show.css') }}">
+@endsection
+
+@section('script')
+  <script>
+    window.Admin = @json($admin);
+    window.csrf_token = @json(csrf_token());
+  </script>
 @endsection
 
 @section('content')
@@ -11,9 +19,16 @@
   <div class="container">
     <div class="profile">
       <label class="profile-image">
-        <img id="userImg" src="{{ asset('images/user.jpeg') }}" alt="ユーザー画像">
-        <div class="camera-icon"><i class="fas fa-camera"></i></div>
-        <input id="imgInput" type="file" name="user_img" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+        @isset ($admin->avatar)
+          <img id="userImg" src="{{ asset("storage/admins/$admin->uid/profile/$admin->avatar") }}" alt="ユーザー画像">
+        @else
+          <img id="userImg" src="{{ asset('images/user.jpeg') }}" alt="ユーザー画像">
+        @endisset
+        @if ($login_user->uid == $admin->uid)
+          <div class="camera-icon"><i class="fas fa-camera"></i></div>
+          <input id="imgInput" type="file" name="user_img" accept=".jpg,.png,image/jpeg,image/png">
+          <p id="failUpload" class="text-danger">画像のアップロードに失敗しました。</p>
+        @endif
       </label>
       <div class="profile-text">
         <h4>
@@ -25,7 +40,9 @@
             <i class="fas fa-user"></i>
           @endif
           {{ $admin->name }}&nbsp;
-          <a class="btn btn-outline-secondary" href="{{ route('admin.config', ['uid' => $admin->uid]) }}">設定</a>
+          @if ($login_user->uid == $admin->uid)
+            <a class="btn btn-outline-secondary" href="{{ route('admin.config', ['uid' => $admin->uid]) }}">設定</a>
+          @endif
         </h4>
         <p class="mb-5">ID:&nbsp;{{ $admin->uid }}</p>
         <h5><i class="far fa-envelope"></i>&nbsp;{{ $admin->email }}</h5>

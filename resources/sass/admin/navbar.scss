@@ -1,6 +1,20 @@
-.navbar .navbar-collapse .navbar-nav .nav-item .btn-logout {
-  background-color: transparent;
-  border: none;
+.navbar {
+  .navbar-collapse {
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          .user-icon {
+            display: inline-block;
+            width: 30px;
+          }
+        }
+        .btn-logout {
+          background-color: transparent;
+          border: none;
+        }
+      }
+    }
+  }
 }
 
 .modal {

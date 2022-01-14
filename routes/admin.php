@@ -106,6 +106,9 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 Route::get("/email_reset/{token}", [AdminController::class, 'email_reset'])
   ->name('email_reset');
 
+Route::post("/update_avatar/{uid}", [AdminController::class, 'update_avatar'])
+->name('update_avatar');
+
 Route::get('/{uid}/config', [AdminController::class, 'config'])
 ->middleware('auth:admin')
 ->name('config');

@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -107,6 +109,52 @@ class AdminController extends Controller
       }
       return redirect()->route('admin.config', ['uid' => $admin->uid]);
     }
+  }
+
+  public function update_avatar(Request $request, $uid) {
+    DB::beginTransaction();
+
+    try {
+      $profile_path = "admins/$uid/profile";
+      $folderPath = storage_path("app/public/$profile_path/");
+
+      $image_parts = explode(";base64,", $request->image);
+      // $image_type_aux = explode("image/", $image_parts[0]);
+      // $image_type = $image_type_aux[1];
+      $image_base64 = base64_decode($image_parts[1]);
+      $file_name = date('YmdHis') . '.png';
+
+      $admin = Admin::where('uid', $uid)->first();
+
+      $old_file = $admin->avatar;
+
+      $admin->avatar = $file_name;
+      $admin->save();
+
+      Log::debug("Path : $folderPath/$old_file");
+      if (File::exists("$folderPath/$old_file")) {
+        Log::debug("Delete : $old_file");
+        Storage::disk('public')->delete("$profile_path/$old_file");
+      } elseif(!File::exists($folderPath)) {
+        File::makeDirectory($folderPath, $mode = 0777, true, true);
+      }
+
+      $file_put = file_put_contents($folderPath . $file_name, $image_base64);
+
+      if (!$file_put) {
+        $data = 'error';
+      } else {
+        $data = 'success';
+      }
+    } catch (Exception $e) {
+      DB::rollBack();
+      $data = 'error';
+      Log::error($e);
+    }
+
+    DB::commit();
+
+    return response()->json($data);
   }
 
   public function destroy(Request $request) {
