@@ -24,7 +24,9 @@ class AdminController extends Controller
   }
 
   public function config() {
-    return view('admin.config');
+    $admin = Auth::user();
+    $admin_users = $admin->role == "1" ? Admin::get() : array();
+    return view('admin.config', ['admin_users' => $admin_users]);
   }
 
   public function update(Request $request, $uid) {
@@ -157,7 +159,21 @@ class AdminController extends Controller
   }
 
   public function destroy(Request $request) {
-    return redirect()->route('admin.config')->with('success', 'ユーザーを削除しました。');
+    $users = $request->input('users');
+
+    DB::beginTransaction();
+    try {
+      foreach ($users as $uid) {
+        Admin::where('uid', $uid)->delete();
+        Log::debug("Delete user : $uid");
+      }
+      DB::commit();
+    } catch (Exception $e) {
+      DB::rollBack();
+      Log::error($e);
+    }
+
+    return redirect()->route('admin.config')->with('success', '選択したユーザーを削除しました。');
   }
 
   /**

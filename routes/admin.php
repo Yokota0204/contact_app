@@ -38,12 +38,13 @@ Route::get('/orders/{id}', [OrderController::class, 'show'])
 ->middleware('auth:admin')
 ->name('orders.show');
 
+Route::get('/config', [AdminController::class, 'config'])
+->middleware('auth:admin')
+->name('config');
+
 Route::post('/update/auth', [AdminController::class, 'update_auth'])
 ->middleware('auth:admin')
 ->name('update.auth');
-
-Route::post('/destroy', [AdminController::class, 'destroy'])
-->middleware('auth:admin');
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
 ->name('register');
@@ -109,9 +110,9 @@ Route::get("/email_reset/{token}", [AdminController::class, 'email_reset'])
 Route::post("/update_avatar/{uid}", [AdminController::class, 'update_avatar'])
 ->name('update_avatar');
 
-Route::get('/config', [AdminController::class, 'config'])
+Route::delete('/destroy', [AdminController::class, 'destroy'])
 ->middleware('auth:admin')
-->name('config');
+->name('destroy');
 
 Route::post('/{uid}/update', [AdminController::class, 'update'])
 ->middleware('auth:admin')

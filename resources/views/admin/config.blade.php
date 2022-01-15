@@ -60,7 +60,9 @@
     </div>
     @if ($login_user->role == "1")
       <div id="confUser" class="config user-config">
-        <form class="users-wrapper" action="/admin/destroy" method="POST">
+        <form class="users-wrapper" action="{{ route('admin.destroy') }}" method="POST">
+          @csrf
+          @method('DELETE')
           <div class="btns-wrapper">
             <a class="btn btn-primary" href="{{ route('admin.register') }}">新規追加</a>
             <button id="deleteBtn" class="btn btn-danger" type="button"><i class="far fa-trash-alt"></i>&nbsp;削除</button>
@@ -83,37 +85,34 @@
             </div>
           </div>
           <div class="users">
-            @csrf
             <div class="row header-row">
               <div for="checkAll" class="col-check column check">
                 <input id="checkAll" type="checkbox">
               </div>
+              <div class="col-1 column">ID</div>
               <div class="col-2 column">権限</div>
               <div class="col column">名前</div>
               <div class="col-2 column">登録日</div>
               <div class="col-2 column">更新日</div>
               <div class="col-edit column"></div>
             </div>
-            <div class="row body-row user">
-              <div class="col-check column check">
-                <input class="user-check" type="checkbox" name="users[]">
-              </div>
-              <div class="col-2 column select-row">ルート</div>
-              <div class="col column select-row">横田 陽平</div>
-              <div class="col-2 column select-row">2021/12/29 10:08</div>
-              <div class="col-2 column select-row">2021/12/29 10:08</div>
-              <div class="col-edit column edit-open">編集</div>
-            </div>
-            <div class="row body-row user">
-              <div class="col-check column check">
-                <input class="user-check" type="checkbox" name="users[]">
-              </div>
-              <div class="col-2 column select-row">リーダー</div>
-              <div class="col column select-row">横田 健太郎</div>
-              <div class="col-2 column select-row">2021/12/29 10:08</div>
-              <div class="col-2 column select-row">2021/12/29 10:08</div>
-              <div class="col-edit column edit-open">編集</div>
-            </div>
+            @isset($admin_users)
+              @foreach ($admin_users as $user)
+                <div class="row body-row user">
+                  <div class="col-check column check">
+                    <input class="user-check" type="checkbox" name="users[]" value="{{ $user->uid }}">
+                  </div>
+                  <div class="col-1 column">{{ $user->id }}</div>
+                  <div class="col-2 column select-row">
+                    @if ($user->role == '1') ルート @elseif ($user->role == '2') リーダー @else ユーザー @endif
+                  </div>
+                  <div class="col column select-row">{{ $user->name }}</div>
+                  <div class="col-2 column select-row">{{ $user->created_at }}</div>
+                  <div class="col-2 column select-row">{{ $user->updated_at }}</div>
+                  <div class="col-edit column edit-open">編集</div>
+                </div>
+              @endforeach
+            @endisset
           </div>
         </form>
       </div>
