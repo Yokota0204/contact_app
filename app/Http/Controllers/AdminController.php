@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -159,15 +160,29 @@ class AdminController extends Controller
   }
 
   public function destroy(Request $request) {
+    $admin = Auth::user();
+    if ($admin->role != "1") {
+      return redirect()
+        ->route('admin.config')
+        ->withInput()
+        ->withErrors(['message' => '不正な操作です。']);
+    }
+
     $users = $request->input('users');
 
     DB::beginTransaction();
     try {
       foreach ($users as $uid) {
         Admin::where('uid', $uid)->delete();
-        Log::debug("Delete user : $uid");
+        Log::debug("Deleted user : $uid");
       }
       DB::commit();
+      Log::info("Delete action, root user uid : $admin->uid");
+
+      $address = $admin->email;
+      Mail::send('emails.delete-notify', ['admin' => $admin], function($message) use ($address) {
+        $message->to($address)->subject('あなたのアカウントで管理者ユーザーが削除されました。');
+      });
     } catch (Exception $e) {
       DB::rollBack();
       Log::error($e);
