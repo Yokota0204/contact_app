@@ -109,7 +109,7 @@
                   <div class="col column select-row">{{ $user->name }}</div>
                   <div class="col-2 column select-row">{{ $user->created_at }}</div>
                   <div class="col-2 column select-row">{{ $user->updated_at }}</div>
-                  <div class="col-edit column edit-open">編集</div>
+                  <div id="{{ $user->uid }}" class="col-edit column edit-open">編集</div>
                 </div>
               @endforeach
             @endisset

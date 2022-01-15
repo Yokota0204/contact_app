@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use Carbon\Carbon;
 class RoleTableSeeder extends Seeder
 {
     /**
@@ -14,16 +14,29 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
+        $carbon = Carbon::now();
+        $timestamp = $carbon->timestamp;
+        $datetime = date('Y-m-d H:i:s', $timestamp);
+
         DB::table('roles')->insert([
-            'name' => 'root',
+            'label' => 'root',
+            'name' => 'ルート',
+            'created_at' => $datetime,
+            'updated_at' => $datetime,
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'leader',
+            'label' => 'leader',
+            'name' => 'リーダー',
+            'created_at' => $datetime,
+            'updated_at' => $datetime,
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'user',
+            'label' => 'user',
+            'name' => 'ユーザー',
+            'created_at' => $datetime,
+            'updated_at' => $datetime,
         ]);
     }
 }

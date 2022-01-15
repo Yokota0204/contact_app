@@ -48,15 +48,19 @@ class Admin extends Authenticatable
   ];
 
   public function __construct() {
-    $this->uid = $this->generate_uid();
+    return $this->uid = $this->generate_uid();
   }
 
   public function emails() {
-    $this->hasMany('App\Models\Email', 'sender_id', 'uid');
+    return $this->hasMany('App\Models\Email', 'sender_id', 'uid');
   }
 
   public function orders() {
-    $this->hasMany('App\Models\Order', 'in_charge', 'uid');
+    return $this->hasMany('App\Models\Order', 'in_charge', 'uid');
+  }
+
+  public function role() {
+    return $this->hasOne('App\Models\Role', 'id', 'role');
   }
 
   public function generate_uid() {

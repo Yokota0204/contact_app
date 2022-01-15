@@ -114,11 +114,21 @@ $(function () {
   });
 
   // 権限編集モーダル
-  let $editOpen = $('.edit-open');
-  let $editAuthModal = $('#editAuthModal');
-  let $closeEditAuth = $('.close-edit-auth');
+  const $editOpen = $('.edit-open');
+  const $editAuthModal = $('#editAuthModal');
+  const $closeEditAuth = $('.close-edit-auth');
+  const $editModalUidInput = $('#editModalUidInput');
+  const $editModalUid = $editAuthModal.find('#editModalUid');
+  const $editModalName = $editAuthModal.find('#editModalName');
 
   $editOpen.on('click', function () {
+    let siblings = $(this).siblings();
+    const uid = $(this).attr('id');
+    const name = siblings[3].textContent;
+
+    $editModalUid.text(uid);
+    $editModalUidInput.val(uid);
+    $editModalName.text(name);
     $editAuthModal.show();
   });
 

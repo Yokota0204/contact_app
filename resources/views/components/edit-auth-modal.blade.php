@@ -2,7 +2,7 @@
   <div class="modal-dialog" role="document">
     <form id="edit_auth_pop_up" class="modal-content" action="{{ route('admin.update.auth') }}" method="POST">
       @csrf
-      <input name="id" type="hidden">
+      <input id="editModalUidInput" name="uid" type="hidden">
       <div class="modal-header">
         <h5 class="modal-title" id="modalLabel">下記ユーザーの権限を選択してください。</h5>
         <button type="button" class="close close-edit-auth" aria-label="Close">
@@ -12,19 +12,19 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-2">ID</div>
-          <div class="col">DAJKFLDK34</div>
+          <div id="editModalUid" class="col"></div>
         </div>
         <div class="row">
           <div class="col-2">名前</div>
-          <div class="col">横田 陽平</div>
+          <div id="editModalName" class="col"></div>
         </div>
         <div class="row">
           <div class="col-2">権限</div>
           <div class="col">
-            <select class="input" name="authority">
-              <option value="1">ルート</option>
-              <option value="2">リーダー</option>
+            <select id="editModalRole" class="input" name="role">
               <option value="3">ユーザー</option>
+              <option value="2">リーダー</option>
+              <option value="1">ルート</option>
             </select>
           </div>
         </div>

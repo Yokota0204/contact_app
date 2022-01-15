@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Order;
 use App\Models\EmailReset;
+use App\Models\Role;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -80,6 +81,56 @@ class AdminController extends Controller
     }
 
     return redirect()->route('admin.config', ['uid' => $uid]);
+  }
+
+  public function update_auth(Request $request) {
+    $admin = Auth::user();
+    if ($admin->role != '1') {
+      return redirect()->route('admin.config')
+        ->withInput()
+        ->withErrors(['message' => '不正な操作です。']);
+    }
+
+    $uid = $request->input('uid');
+    $role = $request->input('role');
+
+    DB::beginTransaction();
+    try {
+      $user = Admin::where('uid', $uid)->first();
+      $before_role = Role::where('id', $user->role)->first();
+      $before_role_name = $before_role->name;
+      $user->role = $role;
+      $user->save();
+
+      $after_role = Role::where('id', $role)->first();
+      $after_role_name = $after_role->name;
+
+      DB::commit();
+      Log::info("User role changed : [uid => $uid]");
+    } catch (Exception $e) {
+      DB::rollBack();
+      Log::error($e);
+
+      return redirect()->route('admin.config')
+        ->withInput()
+        ->withErrors(['message' => 'ユーザー権限の変更に失敗しました。']);
+    }
+
+    $address = $user->email;
+
+    $data = [
+      'admin_name' => $admin->name,
+      'user_name' => $user->name,
+      'before_role' => $before_role_name,
+      'after_role' => $after_role_name,
+    ];
+
+    Mail::send('emails.edit-role-notify', $data, function($message) use ($address) {
+      $message->to($address)->subject('あなたのアカウントの権限が変更されました。');
+    });
+
+    return redirect()->route('admin.config')
+      ->with(['success' => 'ユーザーの権限を変更しました。']);
   }
 
   public function email_reset(Request $request, $token) {
