@@ -22,10 +22,18 @@ $(function() {
   });
 
   // ステータス更新
-  let $form = $('#form');
+  let $statusForm = $('#statusForm');
   let $statusSelect = $('#statusSelect');
 
   $statusSelect.on('change', function () {
-    $form.submit();
+    $statusForm.submit();
+  });
+
+  // 担当者を更新
+  let $inChargeForm = $('#inChargeForm');
+  let $inChargeSelect = $('#inChargeSelect');
+
+  $inChargeSelect.on('change', function () {
+    $inChargeForm.submit();
   });
 })

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -87,6 +88,8 @@ class OrderController extends Controller
 		$order = Order::find($id);
 		$emails = $order->emails()->orderBy('id', 'desc')->get();
 
+		$users = Admin::get();
+
 		$search_start_date = $request->input('start_date');
 		$search_end_date = $request->input('end_date');
 		$search_status = $request->input('status');
@@ -109,6 +112,7 @@ class OrderController extends Controller
 			'order' => $order,
 			'inputs_params' => $inputs_params,
 			'emails' => $emails,
+			'users' => $users,
 		];
 		return view('orders.show', $data);
 	}
@@ -175,10 +179,11 @@ class OrderController extends Controller
 		return redirect()->route('orders.create')->with('success', 'お問い合わせを送信しました。');
 	}
 
-	public function update(Request $request, $id) {
+	public function update_status(Request $request) {
 		DB::beginTransaction();
 
 		try {
+			$id = $request->input('id');
 			$status = $request->input('status');
 
 			$order = Order::find($id);
@@ -198,6 +203,33 @@ class OrderController extends Controller
 				->route('admin.orders.show', ['id' => $id])
 				->withInput()
 				->withErrors(['message' => 'ステータスの更新に失敗しました。']);
+		}
+	}
+
+	public function update_in_charge(Request $request) {
+		DB::beginTransaction();
+
+		try {
+			$id = $request->input('id');
+			$in_charge = $request->input('in_charge');
+
+			$order = Order::find($id);
+			$order->in_charge = $in_charge;
+			$order->save();
+
+			DB::commit();
+
+			return redirect()
+				->route('admin.orders.show', ['id' => $id])
+				->with(['success' => '担当者を更新しました。']);
+		} catch (Exception $e) {
+			DB::rollBack();
+			Log::error($e);
+
+			return redirect()
+				->route('admin.orders.show', ['id' => $id])
+				->withInput()
+				->withErrors(['message' => '担当者の更新に失敗しました。']);
 		}
 	}
 

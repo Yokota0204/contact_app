@@ -28,8 +28,9 @@
         <div class="col-2">問い合わせ日時</div>
         <div class="col">{{ $order->created_at_display }}</div>
       </div>
-      <form id="form" class="row status" action="{{ route('admin.orders.update', ['id' => $order->id]) }}" method="POST">
+      <form id="statusForm" class="row status" action="{{ route('admin.orders.update.status') }}" method="POST">
         @csrf
+        <input name="id" type="hidden" value="{{ $order->id }}">
         <div class="col-2">ステータス</div>
         <div class="col">
           <select id="statusSelect" class="select" name="status">
@@ -41,6 +42,23 @@
           </select>
         </div>
       </form>
+      @if ($login_user->role == "1" || $login_user->role == "2")
+        <form id="inChargeForm" class="row status" action="{{ route('admin.orders.update.in_charge') }}" method="POST">
+          @csrf
+          <input name="id" type="hidden" value="{{ $order->id }}">
+          <div class="col-2">担当者</div>
+          <div class="col">
+            <select id="inChargeSelect" class="select" name="in_charge">
+              <option value="">担当者を選択してください。</option>
+              @foreach ($users as $user)
+                <option value="{{ $user->uid }}" @if ($order->in_charge == $user->uid) selected @endif>
+                  {{ $user->name }}(UID: {{ $user->uid }})
+                </option>
+              @endforeach
+            </select>
+          </div>
+        </form>
+      @endif
       <div class="order-body">
         {{ $order->question }}
       </div>

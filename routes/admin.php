@@ -34,9 +34,13 @@ Route::get('/orders/{id}', [OrderController::class, 'show'])
 ->middleware('auth:admin')
 ->name('orders.show');
 
-Route::post('/orders/{id}', [OrderController::class, 'update'])
+Route::post('/orders/update/status', [OrderController::class, 'update_status'])
 ->middleware('auth:admin')
-->name('orders.update');
+->name('orders.update.status');
+
+Route::post('/orders/update/in_charge', [OrderController::class, 'update_in_charge'])
+->middleware('auth:admin')
+->name('orders.update.in_charge');
 
 Route::get('/config', [AdminController::class, 'config'])
 ->middleware('auth:admin')
