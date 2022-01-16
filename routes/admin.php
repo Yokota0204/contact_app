@@ -30,13 +30,13 @@ Route::post('/orders/{order_id}/reply', [EmailController::class, 'reply'])
 ->middleware('auth:admin')
 ->name('orders.reply');
 
-Route::post('/orders/{id}', [OrderController::class, 'update'])
-->middleware('auth:admin')
-->name('orders.update');
-
 Route::get('/orders/{id}', [OrderController::class, 'show'])
 ->middleware('auth:admin')
 ->name('orders.show');
+
+Route::post('/orders/{id}', [OrderController::class, 'update'])
+->middleware('auth:admin')
+->name('orders.update');
 
 Route::get('/config', [AdminController::class, 'config'])
 ->middleware('auth:admin')
@@ -47,16 +47,11 @@ Route::post('/update/auth', [AdminController::class, 'update_auth'])
 ->name('update.auth');
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
+->middleware('auth:admin')
 ->name('register');
 
-// Route::get('/register', [RegisteredUserController::class, 'create'])
-//   ->middleware('auth:admin')
-//   ->name('register');
-
-Route::post('/register', [RegisteredUserController::class, 'store']);
-
-// Route::post('/register', [RegisteredUserController::class, 'store'])
-//   ->middleware('auth:admin');
+Route::post('/register', [RegisteredUserController::class, 'store'])
+->middleware('auth:admin');
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
 ->middleware('guest:admin')
@@ -105,7 +100,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 ->name('logout');
 
 Route::get("/email_reset/{token}", [AdminController::class, 'email_reset'])
-  ->name('email_reset');
+->name('email_reset');
 
 Route::post("/update_avatar/{uid}", [AdminController::class, 'update_avatar'])
 ->name('update_avatar');

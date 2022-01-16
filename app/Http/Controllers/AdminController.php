@@ -67,28 +67,27 @@ class AdminController extends Controller
         $email_reset->sendEmailResetNotification($token);
 
         return redirect()
-          ->route('admin.config', ['uid' => $uid])
-          ->with('success', '確認メールを送信しました。メールのリンクからメールアドレスの認証を行ってください。');
+            ->route('admin.config', ['uid' => $uid])
+            ->with('success', '確認メールを送信しました。メールのリンクからメールアドレスの認証を行ってください。');
       } catch (Exception $e) {
         Log::error($e);
         DB::rollback();
 
         return redirect()
-          ->route('admin.config', ['uid' => $uid])
-          ->withInput()
-          ->withErrors(['message' => 'メールの変更でエラーが発生しました。']);
+            ->route('admin.config', ['uid' => $uid])
+            ->withInput()
+            ->withErrors(['message' => 'メールの変更でエラーが発生しました。']);
       }
     }
-
-    return redirect()->route('admin.config', ['uid' => $uid]);
   }
 
   public function update_auth(Request $request) {
     $admin = Auth::user();
     if ($admin->role != '1') {
-      return redirect()->route('admin.config')
-        ->withInput()
-        ->withErrors(['message' => '不正な操作です。']);
+      return redirect()
+          ->route('admin.config')
+          ->withInput()
+          ->withErrors(['message' => '不正な操作です。']);
     }
 
     $uid = $request->input('uid');
@@ -111,29 +110,40 @@ class AdminController extends Controller
       DB::rollBack();
       Log::error($e);
 
-      return redirect()->route('admin.config')
-        ->withInput()
-        ->withErrors(['message' => 'ユーザー権限の変更に失敗しました。']);
+      return redirect()
+          ->route('admin.config')
+          ->withInput()
+          ->withErrors(['message' => 'ユーザー権限の変更に失敗しました。']);
     }
 
-    $address = $user->email;
+    try {
+      $address = $user->email;
 
-    $data = [
-      'admin_name' => $admin->name,
-      'user_name' => $user->name,
-      'before_role' => $before_role_name,
-      'after_role' => $after_role_name,
-    ];
+      $data = [
+        'admin_name' => $admin->name,
+        'user_name' => $user->name,
+        'before_role' => $before_role_name,
+        'after_role' => $after_role_name,
+      ];
 
-    Mail::send('emails.edit-role-notify', $data, function($message) use ($address) {
-      $message->to($address)->subject('あなたのアカウントの権限が変更されました。');
-    });
+      Mail::send('emails.edit-role-notify', $data, function($message) use ($address) {
+        $message->to($address)->subject('あなたのアカウントの権限が変更されました。');
+      });
 
-    return redirect()->route('admin.config')
-      ->with(['success' => 'ユーザーの権限を変更しました。']);
+      return redirect()
+          ->route('admin.config')
+          ->with('success', 'ユーザー権限を変更しました。');
+    } catch (Exception $e) {
+      Log::error($e);
+      return redirect()
+          ->route('admin.config')
+          ->with('success', 'ユーザー権限を変更しました。')
+          ->withInput()
+          ->withErrors(['message' => 'メールの送信に失敗しました。']);
+    }
   }
 
-  public function email_reset(Request $request, $token) {
+  public function email_reset($token) {
     $email_resets = DB::table('email_resets')
       ->where('token', $token)
       ->first();
@@ -151,7 +161,8 @@ class AdminController extends Controller
         ->where('token', $token)
         ->delete();
 
-      return redirect()->route('admin.config', ['uid' => $admin->uid])
+      return redirect()
+        ->route('admin.config', ['uid' => $admin->uid])
         ->with('success', 'メールアドレスを更新しました。');
     } else {
       // レコードが存在していた場合削除
@@ -199,13 +210,13 @@ class AdminController extends Controller
       } else {
         $data = 'success';
       }
+
+      DB::commit();
     } catch (Exception $e) {
       DB::rollBack();
       $data = 'error';
       Log::error($e);
     }
-
-    DB::commit();
 
     return response()->json($data);
   }
@@ -214,9 +225,9 @@ class AdminController extends Controller
     $admin = Auth::user();
     if ($admin->role != "1") {
       return redirect()
-        ->route('admin.config')
-        ->withInput()
-        ->withErrors(['message' => '不正な操作です。']);
+          ->route('admin.config')
+          ->withInput()
+          ->withErrors(['message' => '不正な操作です。']);
     }
 
     $users = $request->input('users');
@@ -229,17 +240,32 @@ class AdminController extends Controller
       }
       DB::commit();
       Log::info("Delete action, root user uid : $admin->uid");
+    } catch (Exception $e) {
+      DB::rollBack();
+      Log::error($e);
 
+      return redirect()
+        ->route('admin.config')
+        ->withInput()
+        ->withErrors(['message' => 'ユーザーの削除に失敗しました。']);
+    }
+
+    try {
       $address = $admin->email;
       Mail::send('emails.delete-notify', ['admin' => $admin], function($message) use ($address) {
         $message->to($address)->subject('あなたのアカウントで管理者ユーザーが削除されました。');
       });
+      return redirect()
+        ->route('admin.config')
+        ->with('success', '選択したユーザーを削除しました。');
     } catch (Exception $e) {
-      DB::rollBack();
       Log::error($e);
+      return redirect()
+        ->route('admin.config')
+        ->with('success', '選択したユーザーを削除しました。')
+        ->withInput()
+        ->withErrors(['message' => 'メールの送信に失敗しました。']);
     }
-
-    return redirect()->route('admin.config')->with('success', '選択したユーザーを削除しました。');
   }
 
   /**

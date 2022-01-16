@@ -117,6 +117,10 @@ class EmailController extends Controller
         $file_values[] = $file_value;
       }
 
+      $order->status = "99";
+      $order->save();
+      Log::debug("order_id: $order_id : 問い合わせのステータスを「対応済み」変更");
+
       if (count($file_values) > 0) EmailFile::insert($file_values);
       Log::debug('メールを保存完了');
       Log::info("Email: $email");
@@ -126,17 +130,18 @@ class EmailController extends Controller
       Log::debug('メール送信完了');
       Log::info('To: '.print_r($validated_tos, true).', Cc: '.print_r($validated_ccs, true).', Bcc: '.print_r($validated_bccs, true));
 
-      $order->status = "99";
-      $order->save();
-      Log::debug("order_id: $order_id : 問い合わせのステータスを「対応済み」変更");
+      DB::commit();
+
+      return redirect()->route("admin.orders.show", ['id' => $order_id])
+        ->with(['success' => 'メールを送信しました。']);
     } catch (Exception $e) {
       Log::debug($e);
       DB::rollBack();
+
+      return redirect()
+        ->route("admin.orders.show", ['id' => $order_id])
+        ->withInput()
+        ->withErrors(['message' => '問い合わせの返信に失敗しました。']);
     }
-
-    DB::commit();
-
-    return redirect()->route("admin.orders.show", ['id' => $order_id])
-      ->with(['success' => 'メールを送信しました。']);
   }
 }

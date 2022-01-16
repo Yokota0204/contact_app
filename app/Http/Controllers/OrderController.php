@@ -184,14 +184,21 @@ class OrderController extends Controller
 			$order = Order::find($id);
 			$order->status = $status;
 			$order->save();
+
+			DB::commit();
+
+			return redirect()
+				->route('admin.orders.show', ['id' => $id])
+				->with(['success' => 'ステータスを更新しました。']);
 		} catch (Exception $e) {
 			DB::rollBack();
-			Log::info($e);
+			Log::error($e);
+
+			return redirect()
+				->route('admin.orders.show', ['id' => $id])
+				->withInput()
+				->withErrors(['message' => 'ステータスの更新に失敗しました。']);
 		}
-
-		DB::commit();
-
-		return redirect('/admin/orders/'.$id)->with(['success' => 'ステータスを更新しました。']);
 	}
 
 	public function validate_order(Request $request) {
