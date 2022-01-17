@@ -52,12 +52,17 @@
               <option value="">担当者を選択してください。</option>
               @foreach ($users as $user)
                 <option value="{{ $user->uid }}" @if ($order->in_charge == $user->uid) selected @endif>
-                  {{ $user->name }}(UID: {{ $user->uid }})
+                  {{ $user->name }}&nbsp;(UID: {{ $user->uid }})
                 </option>
               @endforeach
             </select>
           </div>
         </form>
+      @else
+        <div class="row">
+          <div class="col-2">担当者</div>
+          <div class="col">{{ $order->admin->name }}&nbsp;(UID:&nbsp;{{ $order->admin->uid }})</div>
+        </div>
       @endif
       <div class="order-body">
         {{ $order->question }}
