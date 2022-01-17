@@ -2,21 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
-use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+use Exception;
 
+use App\Models\Admin;
 use App\Models\Order;
 use App\Models\User;
-use Exception;
-use Illuminate\Support\Facades\Log;
-use Carbon\Carbon;
 
 class OrderController extends Controller
 {
 	public function index() {
-		$orders = (new Order)->orderBy('id', 'desc')->simplePaginate(20);
+		$orders = new Order;
+		$admin = Auth::user();
+
+		if ($admin->role == "3") {
+			$orders = $orders->where('in_charge', $admin->uid);
+		}
+		$orders = $orders->orderBy('id', 'desc')->simplePaginate(20);
 
 		$inputs_params = "";
 
@@ -36,6 +42,12 @@ class OrderController extends Controller
 		$search_company = $request->input('company');
 		$search_client = $request->input('client');
 		$search_email = $request->input('email');
+
+		$admin = Auth::user();
+
+		if ($admin->role == "3") {
+			$orders = $orders->where('in_charge', $admin->uid);
+		}
 
 		if (($request->has('start_date') && !empty($request->input('start_date'))) && ($request->has('end_date') && !empty($request->input('end_date')))) {
 			$orders = $orders->dateAfter($search_start_date." 00:00:00")->dateBefore($search_end_date." 23:59:59");
@@ -85,9 +97,14 @@ class OrderController extends Controller
 	}
 
 	public function show(Request $request, $id) {
+		$admin = Auth::user();
 		$order = Order::find($id);
-		$emails = $order->emails()->orderBy('id', 'desc')->get();
 
+		if ($order == null || ($admin->role == "3" && $order->in_charge != $admin->uid)) {
+			return redirect()->route('admin.orders.index');
+		}
+
+		$emails = $order->emails()->orderBy('id', 'desc')->get();
 		$users = Admin::get();
 
 		$search_start_date = $request->input('start_date');
@@ -114,6 +131,7 @@ class OrderController extends Controller
 			'emails' => $emails,
 			'users' => $users,
 		];
+
 		return view('orders.show', $data);
 	}
 
