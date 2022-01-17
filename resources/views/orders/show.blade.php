@@ -109,7 +109,7 @@
         </div>
       @endforeach
     </div>
-    <form class="reply-wrapper form" action="{{ route('admin.orders.reply', ['order_id' => $order->id]) }}" method="POST" enctype="multipart/form-data">
+    <form id="replyForm" class="reply-wrapper form" action="{{ route('admin.orders.reply', ['order_id' => $order->id]) }}" method="POST" enctype="multipart/form-data">
       @csrf
       <h3 class="mb-5">返信フォーム</h3>
       <div class="form-group">
@@ -157,8 +157,9 @@
         <input id="fileCount" name="file_count" type="hidden" value="1">
       </div>
       <div class="btn-wrapper">
-        <button class="btn btn-lg btn-primary" type="submit">送信</button>
+        <button id="confReply" class="btn btn-lg btn-primary" type="button">送信</button>
       </div>
+      <x-reply-confirmation-modal></x-reply-confirmation-modal>
     </form>
   </div>
 @endsection

@@ -36,4 +36,28 @@ $(function() {
   $inChargeSelect.on('change', function () {
     $inChargeForm.submit();
   });
+
+  // 返信内容確認モーダル
+  const $confReply = $('#confReply');
+  const $replyModal = $('#replyModal');
+  const $submitReply = $('#submitReply');
+  const $closeReplyConf = $('.close-reply-conf');
+
+  $confReply.on('click', () => {
+    $replyModal.show();
+  });
+
+  $closeReplyConf.on('click', () => {
+    $replyModal.fadeOut();
+  });
+
+  $submitReply.on('click', () => {
+    $replyModal.hide();
+  });
+
+  $(document).on('click', function(e) {
+    if(!$(e.target).closest('#reply_confirmation_pop_up').length && !$(e.target).closest('#confReply').length){
+      $replyModal.fadeOut();
+    }
+  });
 })
