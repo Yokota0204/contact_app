@@ -1,0 +1,53 @@
+.search-board {
+  background-color: #fff;
+  margin: 30px 50px;
+  padding: 10px 50px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+}
+.search-board .search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-board .search-form .form-item {
+  margin-left: 15px;
+}
+.search-board .search-form .form-item .input {
+  border-radius: 30px;
+  padding: 5px 15px;
+  border: 1px solid #eee;
+}
+.search-board .search-form .form-item select {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px 15px;
+}
+.search-board .search-form .date .input {
+  width: 165px;
+}
+.search-board .search-form .client .input {
+  width: 200px;
+}
+.search-board .search-form .button .btn {
+  width: 50px;
+}
+
+.pagination-nav {
+  width: 93%;
+  margin: 0 auto;
+}
+.pagination-nav .pagination {
+  margin: 1rem 0;
+}
+.pagination-nav .pagination .page-link {
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+.pagination-nav .pagination .next {
+  margin-left: auto;
+}

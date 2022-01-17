@@ -1,0 +1,22 @@
+li {
+  list-style: none;
+}
+
+.message-box {
+  display: flex;
+  ul {
+    margin-bottom: 0;
+    padding-inline-start: 0;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  .close-btn {
+    cursor: pointer;
+    margin-left: auto;
+  }
+}
+.message {
+  background-color: #CCE5CD;
+  color: #3E6840;
+}

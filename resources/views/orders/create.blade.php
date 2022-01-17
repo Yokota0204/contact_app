@@ -3,7 +3,7 @@
     orders/create
   </x-slot>
   <script src="{{ asset('/js/orders/create.js') }}" type="text/javascript"></script>
-  @if ($errors->any())
+  {{-- @if ($errors->any())
     <div id="alert" class="message-box alert alert-danger">
       <ul>
         @foreach ($errors->all() as $error)
@@ -18,7 +18,8 @@
       <p>{{ session('success') }}</p>
       <span id="closeMsg">×</span>
     </div>
-  @endif
+  @endif --}}
+  <x-message-box></x-message-box>
   <form action="{{ route('orders.confirmation') }}" method="POST" class="form">
     @csrf
     <h3 class="text-center border-bottom pb-3 mb-5">お問い合わせ</h3>

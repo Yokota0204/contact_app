@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "MPLUS1Code";
+  src: url(/fonts/MPLUS1Code-VariableFont_wght.ttf?0994b7b69b2ff55a910a9591ad31ba6b);
+}
 body {
   font-family: MPLUS1Code;
 }

@@ -366,6 +366,61 @@ eval("/* module decorator */ module = __webpack_require__.nmd(module);\nvar __WE
 
 /***/ }),
 
+/***/ "./resources/sass/orders/table.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/orders/table.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvdGFibGUuc2Nzcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvdGFibGUuc2Nzcz85YzBjIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxuZXhwb3J0IHt9OyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/sass/orders/table.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/orders/index.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/orders/index.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvaW5kZXguc2Nzcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvaW5kZXguc2Nzcz9iYTg1Il0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxuZXhwb3J0IHt9OyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/sass/orders/index.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/orders/show.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/orders/show.scss ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvc2hvdy5zY3NzLmpzIiwibWFwcGluZ3MiOiI7QUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9zYXNzL29yZGVycy9zaG93LnNjc3M/OTgxNiJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW5cbmV4cG9ydCB7fTsiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/sass/orders/show.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/orders/create.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/orders/create.scss ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvY3JlYXRlLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3Mvb3JkZXJzL2NyZWF0ZS5zY3NzP2RkNzkiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/orders/create.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/orders/confirmation.scss":
+/*!*************************************************!*\
+  !*** ./resources/sass/orders/confirmation.scss ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvY29uZmlybWF0aW9uLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3Mvb3JkZXJzL2NvbmZpcm1hdGlvbi5zY3NzPzI1MmYiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/orders/confirmation.scss\n");
+
+/***/ }),
+
 /***/ "./resources/sass/errors/500.scss":
 /*!****************************************!*\
   !*** ./resources/sass/errors/500.scss ***!
@@ -373,7 +428,62 @@ eval("/* module decorator */ module = __webpack_require__.nmd(module);\nvar __WE
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9lcnJvcnMvNTAwLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvZXJyb3JzLzUwMC5zY3NzPzZlNTQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/errors/500.scss\n");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9lcnJvcnMvNTAwLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvZXJyb3JzLzUwMC5zY3NzPzdjMTkiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/errors/500.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/admin/show.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/admin/show.scss ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9hZG1pbi9zaG93LnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvYWRtaW4vc2hvdy5zY3NzP2UwNWMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/admin/show.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/admin/config.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/admin/config.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9hZG1pbi9jb25maWcuc2Nzcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy9hZG1pbi9jb25maWcuc2Nzcz8xODkxIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxuZXhwb3J0IHt9OyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/sass/admin/config.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/admin/forgot-password.scss":
+/*!***************************************************!*\
+  !*** ./resources/sass/admin/forgot-password.scss ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9hZG1pbi9mb3Jnb3QtcGFzc3dvcmQuc2Nzcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy9hZG1pbi9mb3Jnb3QtcGFzc3dvcmQuc2Nzcz9kNDljIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxuZXhwb3J0IHt9OyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/sass/admin/forgot-password.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/admin/login.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/admin/login.scss ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9hZG1pbi9sb2dpbi5zY3NzLmpzIiwibWFwcGluZ3MiOiI7QUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9zYXNzL2FkbWluL2xvZ2luLnNjc3M/ZTY2YSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW5cbmV4cG9ydCB7fTsiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/sass/admin/login.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/admin/navbar.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/admin/navbar.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9hZG1pbi9uYXZiYXIuc2Nzcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy9hZG1pbi9uYXZiYXIuc2Nzcz81MzdhIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxuZXhwb3J0IHt9OyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/sass/admin/navbar.scss\n");
 
 /***/ }),
 
@@ -410,25 +520,25 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
-/***/ "./resources/sass/orders/create.scss":
-/*!*******************************************!*\
-  !*** ./resources/sass/orders/create.scss ***!
-  \*******************************************/
+/***/ "./resources/sass/form.scss":
+/*!**********************************!*\
+  !*** ./resources/sass/form.scss ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvY3JlYXRlLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3Mvb3JkZXJzL2NyZWF0ZS5zY3NzPzAxZDkiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/orders/create.scss\n");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9mb3JtLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvZm9ybS5zY3NzP2I0ODIiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/form.scss\n");
 
 /***/ }),
 
-/***/ "./resources/sass/orders/confirmation.scss":
-/*!*************************************************!*\
-  !*** ./resources/sass/orders/confirmation.scss ***!
-  \*************************************************/
+/***/ "./resources/sass/message_box.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/message_box.scss ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9vcmRlcnMvY29uZmlybWF0aW9uLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3Mvb3JkZXJzL2NvbmZpcm1hdGlvbi5zY3NzPzVjNDYiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/orders/confirmation.scss\n");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9tZXNzYWdlX2JveC5zY3NzLmpzIiwibWFwcGluZ3MiOiI7QUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9zYXNzL21lc3NhZ2VfYm94LnNjc3M/NzkzNSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW5cbmV4cG9ydCB7fTsiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/sass/message_box.scss\n");
 
 /***/ }),
 
@@ -588,11 +698,21 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0,
-/******/ 			"css/orders/confirmation": 0,
-/******/ 			"css/orders/create": 0,
+/******/ 			"css/message_box": 0,
+/******/ 			"css/form": 0,
 /******/ 			"css/main": 0,
 /******/ 			"css/top": 0,
-/******/ 			"css/errors/500": 0
+/******/ 			"css/admin/navbar": 0,
+/******/ 			"css/admin/login": 0,
+/******/ 			"css/admin/forgot-password": 0,
+/******/ 			"css/admin/config": 0,
+/******/ 			"css/admin/show": 0,
+/******/ 			"css/errors/500": 0,
+/******/ 			"css/orders/confirmation": 0,
+/******/ 			"css/orders/create": 0,
+/******/ 			"css/orders/show": 0,
+/******/ 			"css/orders/index": 0,
+/******/ 			"css/orders/table": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -642,13 +762,23 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/top.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/main.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/orders/create.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/orders/confirmation.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/orders/confirmation","css/orders/create","css/main","css/top","css/errors/500"], () => (__webpack_require__("./resources/sass/errors/500.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/top.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/main.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/form.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/message_box.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/orders/table.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/orders/index.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/orders/show.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/orders/create.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/orders/confirmation.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/errors/500.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/admin/show.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/admin/config.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/admin/forgot-password.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/admin/login.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/message_box","css/form","css/main","css/top","css/admin/navbar","css/admin/login","css/admin/forgot-password","css/admin/config","css/admin/show","css/errors/500","css/orders/confirmation","css/orders/create","css/orders/show","css/orders/index","css/orders/table"], () => (__webpack_require__("./resources/sass/admin/navbar.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

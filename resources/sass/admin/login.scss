@@ -1,0 +1,10 @@
+.contents {
+  height: 100vh;
+  .form {
+    height: 100%;
+    .forget-password {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

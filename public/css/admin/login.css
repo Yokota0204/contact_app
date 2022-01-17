@@ -1,0 +1,10 @@
+.contents {
+  height: 100vh;
+}
+.contents .form {
+  height: 100%;
+}
+.contents .form .forget-password {
+  display: flex;
+  justify-content: flex-end;
+}

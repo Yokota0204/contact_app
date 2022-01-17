@@ -7,13 +7,33 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'company',
-        'client',
-        'email',
-        'question'
-    ];
+  protected $fillable = [
+    'user_id',
+    'company',
+    'client',
+    'email',
+    'question',
+    'status',
+    'created_at',
+    'updated_at',
+    'created_at_display',
+  ];
+
+  public function admin() {
+    return $this->belongsTo('App\Models\Admin', 'in_charge', 'uid');
+  }
+
+  public function emails() {
+    return $this->hasMany('App\Models\Email');
+  }
+
+  public function scopeDateAfter($query, $start) {
+    return $query->where('created_at', '>=', $start);
+  }
+
+  public function scopeDateBefore($query, $end) {
+    return $query->where('created_at', '<=', $end);
+  }
 }
