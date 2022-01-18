@@ -5,26 +5,6 @@ body {
         height: 900px;
         width: 100%;
         position: relative;
-        .text {
-          text-align: center;
-          position: absolute;
-          margin: auto;
-          width: 100%;
-          top: 55%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          -webkit-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-          h1 {
-            display: block;
-            letter-spacing: 0.1em;
-            color: black;
-            margin-bottom: 60px;
-          }
-          .btn {
-            padding: 15px 30px;
-          }
-        }
       }
 
       .info-wrapper {
@@ -48,10 +28,9 @@ body {
         }
       }
 
-      .receivable-orders {
-        border-bottom: 1px solid #eee;
+      .message {
         position: relative;
-        height: 850px;
+        height: 949px;
         width: 100%;
         .bg {
           width: 100%;
@@ -60,6 +39,31 @@ body {
           opacity: 0.5;
           position: absolute;
         }
+        .text {
+          text-align: center;
+          position: absolute;
+          margin: auto;
+          width: 100%;
+          top: 55%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          h1 {
+            display: block;
+            letter-spacing: 0.1em;
+            color: black;
+            margin-bottom: 60px;
+          }
+          .btn {
+            padding: 15px 30px;
+          }
+        }
+      }
+
+      .receivable-orders {
+        background-color: #eee;
+        border-bottom: 1px solid #eee;
         .content {
           .orders {
             font-size: 20px;
