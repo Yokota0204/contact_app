@@ -12,6 +12,7 @@ use Exception;
 use App\Models\Admin;
 use App\Models\Order;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -181,7 +182,22 @@ class OrderController extends Controller
 			DB::commit();
 		} catch(Exception $e) {
 			DB::rollBack();
+			Log::error($e);
 			return redirect()->route('errors.500');
+		}
+
+		try {
+			$data = [
+				'company' => $order->company,
+				'client' => $order->client,
+				'question' => $order->question,
+			];
+
+			Mail::send('emails.complete-send-order', $data, function($message) use($order) {
+				$message->to($order->email)->subject('お問い合わせを付けつけました。');
+			});
+		} catch (Exception $e) {
+			Log::error($e);
 		}
 
 		return redirect()->route('orders.create')->with('success', 'お問い合わせを送信しました。');
@@ -244,14 +260,13 @@ class OrderController extends Controller
 	public function validate_order(Request $request) {
 		$validate_rule = [
 			'client' => 'required',
-			'email' => ['bail', 'required', 'string', 'email', 'unique:users,email'],
+			'email' => ['bail', 'required', 'string', 'email'],
 			'question' => 'required'
 		];
 
 		$validate_message = [
 			'client.required' => '名前は必須項目です。',
 			'email.required' => 'メールアドレスは必須項目です。',
-			'email.unique' => '既に登録されているメールアドレスです。',
 			'email.max' => 'メールアドレスが長すぎます。',
 			'question.required' => 'お問い合わせ内容は必須項目です。'
 		];
