@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('stylesheet')
+  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   <link rel="stylesheet" href="{{ asset('css/form.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin/forgot-password.css') }}">
 @endsection
@@ -15,8 +16,9 @@
       <x-label for="email" :value="__('auth.form.email')" />
       <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
     </div>
-    <div class="btn-wrapper">
+    <div class="btns-wrapper">
       <button class="btn btn-primary">認証メール送信</button>
+      <a class="btn btn-secondary" href="{{ route('admin.login') }}">戻る</a>
     </div>
   </form>
 @endsection

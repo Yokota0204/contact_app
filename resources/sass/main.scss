@@ -20,9 +20,9 @@ body {
 
   .btns-wrapper {
     margin: 0 auto;
-    .btn {
-      width: 100%;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .contents {

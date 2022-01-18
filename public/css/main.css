@@ -19,9 +19,9 @@ body .btn-wrapper .btn {
 }
 body .btns-wrapper {
   margin: 0 auto;
-}
-body .btns-wrapper .btn {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 body .contents main .navbar {
   position: fixed;
