@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class NewPasswordController extends Controller
 {
@@ -56,6 +57,14 @@ class NewPasswordController extends Controller
     );
 
     Log::debug('Password has changed.');
+
+    $to = $request->input('email');
+
+    $data = [];
+
+    Mail::send('emails.change-password', $data, function($message) use ($to) {
+      $message->to($to)->subject('パスワードが変更されました。');
+    });
 
     // If the password was successfully reset, we will redirect the user back to
     // the application's home authenticated view. If there is an error we can
