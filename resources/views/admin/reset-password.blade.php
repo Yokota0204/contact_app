@@ -7,7 +7,7 @@
 @section('content')
   <form class="form" method="POST" action="{{ route('admin.password.update') }}">
     @csrf
-    <h2 class="text-center mb-4">パスワード変更用リンク送信</h2>
+    <h2 class="text-center mb-4">パスワード変更</h2>
     <x-auth-session-status class="mb-4" :status="session('status')" />
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
     <input type="hidden" name="token" value="{{ $request->route('token') }}">
@@ -25,7 +25,7 @@
         name="password_confirmation" required />
     </div>
     <div class="btn-wrapper">
-      <button class="btn btn-primary">認証メール送信</button>
+      <button class="btn btn-primary">変更</button>
     </div>
   </form>
 @endsection
