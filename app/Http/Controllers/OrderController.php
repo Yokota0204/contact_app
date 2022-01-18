@@ -167,17 +167,7 @@ class OrderController extends Controller
 		DB::beginTransaction();
 
 		try {
-			$user = new User();
-			$user->company = $request->company;
-			$user->name = $request->client;
-			$user->email = $request->email;
-			$user->password = "password";
-			$user->save();
-
-			$user_id = $user->id;
-
 			$order = new Order();
-			$order->user_id = $user_id;
 			$order->company = $request->company;
 			$order->client = $request->client;
 			$order->email = $request->email;

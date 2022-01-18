@@ -33,7 +33,6 @@ class OrderTableSeeder extends Seeder
     $created_at_display = $carbon->format('Y/m/d H:i');
 
     DB::table('orders')->insert([
-      'user_id' => '1',
       'company' => "株式会社雑談兄弟",
       'client' => "横田 陽平",
       'email' => 'yokota.02210301@gmail.com',
@@ -53,7 +52,6 @@ class OrderTableSeeder extends Seeder
 			$created_at_display = $carbon->format('Y/m/d H:i');
 
       DB::table('orders')->insert([
-        'user_id' => '1',
         'company' => Str::random(10).".inc",
         'client' => "シード".$i,
         'email' => Str::random(10).'@gmail.com',
