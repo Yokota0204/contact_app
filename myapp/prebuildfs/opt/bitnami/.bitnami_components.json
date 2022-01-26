@@ -1,0 +1,44 @@
+{
+    "gosu": {
+        "arch": "amd64",
+        "digest": "276ab5a0be4b05e136ec468d62c8f9cc4f40d9664c55f01f16a9f1209ba16980",
+        "distro": "debian-10",
+        "type": "NAMI",
+        "version": "1.14.0-3"
+    },
+    "laravel": {
+        "arch": "amd64",
+        "digest": "4f112151d4664461f253ee05819c34158dd3c054f26925e748fb9d39187bafd6",
+        "distro": "debian-10",
+        "type": "NAMI",
+        "version": "8.6.10-5"
+    },
+    "node": {
+        "arch": "amd64",
+        "digest": "a529a3386f396110186951a0a4a4e1f440440d627041589635f69dbf0bdac116",
+        "distro": "debian-10",
+        "type": "NAMI",
+        "version": "14.18.3-6"
+    },
+    "php": {
+        "arch": "amd64",
+        "digest": "4fd9c79afce23e3ef1335637c60aab07da4fac804bf1e9f6db5769a238687d1c",
+        "distro": "debian-10",
+        "type": "NAMI",
+        "version": "8.1.2-10"
+    },
+    "python": {
+        "arch": "amd64",
+        "digest": "c081f7f9663d4d64e7f26d6e6a77b3860ee1f39c309bd564f801c39192042d2f",
+        "distro": "debian-10",
+        "type": "NAMI",
+        "version": "3.8.12-12"
+    },
+    "wait-for-port": {
+        "arch": "amd64",
+        "digest": "1e34030c18f0ec2467fa5f1b1fbad24add217f671c3a61628f7b8671391f9676",
+        "distro": "debian-10",
+        "type": "NAMI",
+        "version": "1.0.1-5"
+    }
+}
