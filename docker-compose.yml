@@ -2,7 +2,7 @@ version: '2'
 
 services:
   mariadb:
-    image: docker.io/bitnami/mariadb:10.6
+    image: 997315655115.dkr.ecr.ap-northeast-1.amazonaws.com/bitnami/mariadb:latest
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
@@ -13,7 +13,7 @@ services:
   myapp:
     build: .
     tty: true
-    image: docker.io/bitnami/laravel:8
+    image: 997315655115.dkr.ecr.ap-northeast-1.amazonaws.com/bitnami/laravel:latest
     environment:
       - DB_HOST=mariadb
       - DB_USERNAME=my_user
