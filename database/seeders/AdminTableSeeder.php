@@ -16,51 +16,56 @@ class AdminTableSeeder extends Seeder
      */
     public function run()
     {
-        $start = Carbon::create("2015", "1", "1", "0", "0", "0");
-        $end = Carbon::create("2022", "1", "10", "10", "55", "59");
+        /*
+        / 本番環境用
+        */
+        if (app()->isProduction())
+        {
+            $carbon = Carbon::now();
+            $timestamp = $carbon->timestamp;
 
-        // timestampに変換する
-        $min = strtotime($start);
-        $max = strtotime($end);
-        for ($i = 3; $i <= 50; $i++) {
-          // ランダムなtimestampを取得し、フォーマット設定
-            $datetime = rand($min, $max);
-            $datetime = date('Y-m-d H:i:s', $datetime);
-
-            $carbon = new Carbon($datetime);
-            $created_at_display = $carbon->format('Y/m/d H:i');
+            // ランダムなtimestampを取得し、フォーマット設定
+            $datetime = date('Y-m-d H:i:s', $timestamp);
 
             DB::table('admins')->insert([
                 'uid' => Str::random(40),
-                'name' => Str::random(10),
-                'email' => Str::random(15).'@gmail.com',
+                'name' => "横田 陽平",
+                'email' => 'yokota.02210301@gmail.com',
                 'email_verified_at' => $datetime,
                 'password' => Str::random(40),
                 'created_at' => $datetime,
                 'updated_at' => $datetime,
-                'role' => '3',
+                'role' => '1',
             ]);
         }
+        else
+        {
+            // 開発環境用
+            $start = Carbon::create("2015", "1", "1", "0", "0", "0");
+            $end = Carbon::create("2022", "1", "10", "10", "55", "59");
 
-        /*
-        / 本番環境用
-        */
+            // timestampに変換する
+            $min = strtotime($start);
+            $max = strtotime($end);
+            for ($i = 3; $i <= 50; $i++) {
+              // ランダムなtimestampを取得し、フォーマット設定
+                $datetime = rand($min, $max);
+                $datetime = date('Y-m-d H:i:s', $datetime);
 
-        // $carbon = Carbon::now();
-        // $timestamp = $carbon->timestamp;
+                $carbon = new Carbon($datetime);
+                $created_at_display = $carbon->format('Y/m/d H:i');
 
-        // // ランダムなtimestampを取得し、フォーマット設定
-        // $datetime = date('Y-m-d H:i:s', $timestamp);
-
-        // DB::table('admins')->insert([
-        //     'uid' => Str::random(40),
-        //     'name' => "横田 陽平",
-        //     'email' => 'yokota.02210301@gmail.com',
-        //     'email_verified_at' => $datetime,
-        //     'password' => Str::random(40),
-        //     'created_at' => $datetime,
-        //     'updated_at' => $datetime,
-        //     'role' => '1',
-        // ]);
+                DB::table('admins')->insert([
+                    'uid' => Str::random(40),
+                    'name' => Str::random(10),
+                    'email' => Str::random(15).'@gmail.com',
+                    'email_verified_at' => $datetime,
+                    'password' => Str::random(40),
+                    'created_at' => $datetime,
+                    'updated_at' => $datetime,
+                    'role' => '3',
+                ]);
+            }
+        }
     }
 }
