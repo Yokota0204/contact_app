@@ -2,7 +2,8 @@ version: '2'
 
 services:
   mariadb:
-    image: 997315655115.dkr.ecr.ap-northeast-1.amazonaws.com/bitnami/mariadb:latest
+    image: ${IMAGE_MARIADB} # 本番環境
+    # image: bitnami/mariadb:10.6 # 開発環境
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=${ALLOW_EMPTY_PASSWORD}
@@ -12,7 +13,8 @@ services:
 
   myapp:
     tty: true
-    image: 997315655115.dkr.ecr.ap-northeast-1.amazonaws.com/bitnami/laravel:latest
+    image: ${IMAGE_LARAVEL} # 本番環境
+    # image: bitnami/laravel:8 # 開発環境
     environment:
       - DB_HOST=${DB_HOST}
       - DB_USERNAME=${DB_USERNAME}
